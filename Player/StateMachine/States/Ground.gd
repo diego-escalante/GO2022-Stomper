@@ -31,7 +31,11 @@ func physics_update(delta: float) -> void:
 		delta
 	)
 	
-	if Input.is_action_just_pressed("dash"):
+	if player.dash_enabled and Input.is_action_just_pressed("dash"):
+		# Remove a jump from the player when dashing, 
+		# otherwise they get an erroneous extra jump
+		# after leaving dash in the air.
+		player.jumps_left -= 1
 		state_machine.transition_to("Dash") 
 	elif not player.is_on_floor():
 		player.start_coyote_time()
