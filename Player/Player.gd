@@ -1,0 +1,171 @@
+class_name Player
+extends KinematicBody2D
+
+enum Direction {RIGHT = 1, LEFT = -1}
+
+export var pixels_per_unit := 16
+
+# Base run
+export var run_enabled := true
+export var run_speed := 5.0
+export var run_left_button := "run_left"
+export var run_right_button := "run_right"
+
+# Acceleration
+export var acceleration_enabled := false
+export var time_to_run_speed := 0.1
+onready var _acceleration := run_speed / time_to_run_speed
+
+# Base jump
+export var jump_enabled := true
+export var jump_height := 3.0
+export var jump_distance := 1.75
+export var jump_button := "jump"
+onready var jump_speed := 2 * jump_height * run_speed / jump_distance
+onready var jump_gravity := 2 * jump_height * run_speed * run_speed / (jump_distance * jump_distance)
+
+# Minimum jump
+export var min_jump_enabled := true
+export var min_jump_height := 1.0
+onready var min_jump_gravity := jump_speed * jump_speed / (2 * min_jump_height)
+onready var _min_jump_distance := run_speed * jump_speed / min_jump_gravity
+
+# Multi jump
+export var multi_jump_enabled := true
+export var multi_jumps := 1
+export var multi_jump_height := 2.0
+onready var multi_jump_speed := sqrt(2 * jump_gravity * multi_jump_height)
+onready var _multi_jump_distance := run_speed * multi_jump_speed / jump_gravity
+
+# Dash
+export var dash_enabled := true
+export var dash_distance := 4.0
+export var time_to_dash_distance := 0.1
+onready var dash_speed := dash_distance / time_to_dash_distance
+
+# Fast fall
+export var fast_fall_enabled := true
+export var fast_fall_distance := 1.25
+onready var fast_fall_gravity := 2 * jump_height * run_speed * run_speed / (fast_fall_distance * fast_fall_distance)
+
+# Drop
+export var drop_enabled := true
+export var drop_button := "drop"
+export var oneway_collision_mask_bit_index := 2
+onready var _drop_timer := _initialize_timer(0.1, "_on_drop_timer_timeout")
+
+# Terminal velocity
+export var terminal_velocity_enabled := true
+export var terminal_velocity_factor := 3.0
+onready var terminal_velocity := jump_speed * terminal_velocity_factor
+
+# Coyote time
+export var coyote_time := 0.1
+onready var _coyote_timer := _initialize_timer(coyote_time, "_on_coyote_timer_timeout")
+
+# Jump buffer
+export var jump_buffer_time := 0.1
+onready var _jump_buffer_timer := _initialize_timer(jump_buffer_time)
+
+onready var animated_sprite := $AnimatedSprite
+onready var jumps_total: int = multi_jumps + 1 if multi_jump_enabled else 1
+onready var jumps_left := jumps_total
+var velocity := Vector2.ZERO
+var facing_direction: int = Direction.RIGHT
+
+func update_run_velocity(delta: float) -> void:
+	var target_velocity := 0.0
+	if run_enabled:
+		target_velocity = Input.get_axis(run_left_button, run_right_button) * run_speed
+
+	if acceleration_enabled:
+		velocity.x = move_toward(velocity.x, target_velocity, _acceleration * delta)
+	else:
+		velocity.x = target_velocity
+
+
+func move_and_slide_with_vertical_velocity_verlet(
+		velocity: Vector2, 
+		vertical_acceleration: float, 
+		delta: float
+) -> Vector2:
+	# This function tries to mimic the basic move_and_slide but uses velocity verlet for the y-axis, 
+	# as this acceleration is (mostly) constant for a platformer. To compensate for move_and_slide 
+	# multiplying by delta internally, the standard velocity verlet equation vt+0.5at^2 is first 
+	# divided by delta (t). Additionally, we cannot assign the result of move_and_slide back to 
+	# velocity because the input wasn't actually just velocity; instead velocity has to be updated 
+	# by looking at the collisions resulting from the translation.
+	# This also takes in a scale of pixels_per_unit so that velocities and accelerations can remain 
+	# represented in more intuitive developer-defined units (e.g. player height, block size, etc.)
+	# rather than pixels.
+	move_and_slide(
+			pixels_per_unit * (velocity + 0.5 * Vector2.UP * vertical_acceleration * delta), 
+			Vector2.UP
+	)
+	
+	if velocity.x > 0:
+		facing_direction = Direction.RIGHT
+		animated_sprite.flip_h = true
+	elif velocity.x < 0:
+		facing_direction = Direction.LEFT
+		animated_sprite.flip_h = false
+	
+	if is_on_floor() or is_on_ceiling():
+		velocity.y = 0
+	if is_on_wall():
+		velocity.x = 0
+	return velocity
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed(jump_button):
+		_jump_buffer_timer.start()
+
+
+func is_jump_press_buffered() -> bool:
+	return not _jump_buffer_timer.is_stopped()
+
+
+func consume_jump_press() -> bool:
+	if _jump_buffer_timer.is_stopped():
+		return false
+	_jump_buffer_timer.stop()
+	return true
+
+
+func perform_drop() -> void:
+	set_collision_mask_bit(oneway_collision_mask_bit_index, false)
+	_drop_timer.start()
+
+
+func _on_drop_timer_timeout() -> void:
+	set_collision_mask_bit(oneway_collision_mask_bit_index, true)
+
+
+func start_coyote_time() -> void:
+	_coyote_timer.start()
+	
+
+func stop_coyote_time() -> void:
+	_coyote_timer.stop()
+
+
+func _on_coyote_timer_timeout() -> void:
+	# If the player has all of its jumps after coyote time, take away their main jump.
+	if jumps_left == jumps_total:
+		 jumps_left -= 1
+
+
+func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer:
+	var new_timer = Timer.new()
+	new_timer.process_mode = Timer.TIMER_PROCESS_PHYSICS
+	new_timer.one_shot = true
+	new_timer.wait_time = wait_time
+	if not timeout_callback.empty():
+		new_timer.connect("timeout", self, timeout_callback)
+	add_child(new_timer)
+	return new_timer
+
+
+func player_die() -> void:
+	queue_free()
