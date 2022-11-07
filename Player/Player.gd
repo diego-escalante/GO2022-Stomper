@@ -168,4 +168,5 @@ func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer
 
 
 func player_die() -> void:
+	Events.emit_signal("player_died")
 	queue_free()

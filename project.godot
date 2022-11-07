@@ -36,6 +36,11 @@ config/name="GO2022-Stomper"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Events="*res://Common/Events.gd"
+LevelManager="*res://Common/LevelManager.tscn"
+
 [display]
 
 window/size/width=320

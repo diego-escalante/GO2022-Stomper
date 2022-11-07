@@ -13,8 +13,14 @@ tile_data = PoolIntArray( 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 581, 361 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 500, 172 )
+current = true
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 500, 172 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
