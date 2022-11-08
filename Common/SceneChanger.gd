@@ -6,8 +6,8 @@ var tween: SceneTreeTween
 onready var fader := $Control/Fader
 
 # Reloads the current scene with a screen transition.
-func reload_scene() -> void:
-	yield(_fadeTo(Color("ff000000"), 0.5, 0), "completed")
+func reload_scene(delay: float = 0) -> void:
+	yield(_fadeTo(Color("ff000000"), 0.5, delay), "completed")
 	get_tree().reload_current_scene()
 	yield(_fadeTo(Color("00000000"), 0.5), "completed")
 

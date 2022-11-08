@@ -40,6 +40,7 @@ config/icon="res://icon.png"
 
 Events="*res://Common/Events.gd"
 SceneChanger="*res://Common/SceneChanger.tscn"
+LevelManager="*res://Common/LevelManager.gd"
 
 [display]
 

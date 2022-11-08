@@ -12,7 +12,6 @@ func _ready():
 
 func _on_start_button_pressed():
 	SceneChanger.change_scene("res://Main.tscn")
-	pass
 
 
 func _on_settings_button_pressed():
