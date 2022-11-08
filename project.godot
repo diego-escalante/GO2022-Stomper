@@ -33,13 +33,13 @@ _global_script_class_icons={
 [application]
 
 config/name="GO2022-Stomper"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Menus/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Events="*res://Common/Events.gd"
-LevelManager="*res://Common/LevelManager.tscn"
+SceneChanger="*res://Common/SceneChanger.tscn"
 
 [display]
 
