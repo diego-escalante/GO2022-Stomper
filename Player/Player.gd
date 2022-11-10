@@ -68,6 +68,7 @@ export var jump_buffer_time := 0.1
 onready var _jump_buffer_timer := _initialize_timer(jump_buffer_time)
 
 onready var animated_sprite := $AnimatedSprite
+onready var stomp_checker := $StompChecker as StompChecker
 onready var jumps_total: int = multi_jumps + 1 if multi_jump_enabled else 1
 onready var jumps_left := jumps_total
 var velocity := Vector2.ZERO
@@ -82,7 +83,6 @@ func update_run_velocity(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, target_velocity, _acceleration * delta)
 	else:
 		velocity.x = target_velocity
-
 
 func move_and_slide_with_vertical_velocity_verlet(
 		velocity: Vector2, 
@@ -115,6 +115,14 @@ func move_and_slide_with_vertical_velocity_verlet(
 	if is_on_wall():
 		velocity.x = 0
 	return velocity
+	
+
+func calculate_position_delta(
+		velocity: Vector2, 
+		vertical_acceleration: float, 
+		time_delta: float
+) -> Vector2:
+	return pixels_per_unit * (velocity + 0.5 * Vector2.UP * vertical_acceleration * time_delta) * time_delta
 
 
 func _unhandled_input(event):

@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Enemy/Enemy.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
@@ -23,17 +28,24 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://Player/StateMachine/StateMachine.gd"
+}, {
+"base": "Node2D",
+"class": "StompChecker",
+"language": "GDScript",
+"path": "res://Player/StompChecker.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "Player": "",
 "PlayerState": "",
-"StateMachine": ""
+"StateMachine": "",
+"StompChecker": ""
 }
 
 [application]
 
 config/name="GO2022-Stomper"
-run/main_scene="res://Menus/TitleScreen.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -115,6 +127,7 @@ dash={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Characters"
 2d_physics/layer_3="Oneway"
+2d_physics/layer_4="Stomp"
 
 [physics]
 

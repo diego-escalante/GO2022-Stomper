@@ -1,7 +1,6 @@
 extends Node
 # SceneChanger is a singleton (autoloaded) used to change or reload a scene with a basic transition.
 
-export var player_death_to_restart_level_deplay := 1.0
 var tween: SceneTreeTween
 onready var fader := $Control/Fader
 

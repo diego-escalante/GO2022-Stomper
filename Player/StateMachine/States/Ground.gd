@@ -25,6 +25,15 @@ func physics_update(delta: float) -> void:
 		player.animated_sprite.set_animation("Run")
 		
 	player.velocity.y += player.jump_gravity * delta
+	
+	if player.stomp_checker.check(player.calculate_position_delta(player.velocity, player.jump_gravity, delta)):
+		var stomped_object = player.stomp_checker.stomped_object.owner
+		if stomped_object is Enemy:
+			stomped_object.die()
+			player.global_position += player.stomp_checker.stomp_delta_position
+			state_machine.transition_to("Air", {"is_jumping": true})
+			return
+		
 	player.velocity = player.move_and_slide_with_vertical_velocity_verlet(
 		player.velocity,
 		player.jump_gravity,
