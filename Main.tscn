@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 31, 5, 0, 0, 0, 0, 31, 53, 0, 0, 0, 0, -33, 53, 0, 0, 0, 0, 31, 5 )
+}
 
 [node name="Main" type="Node2D"]
 
@@ -59,6 +64,8 @@ position = Vector2( 273, 293 )
 
 [node name="Enemy8" parent="." instance=ExtResource( 1 )]
 position = Vector2( 801, 363 )
+curve = SubResource( 1 )
+movement_type = 1
 
 [node name="Enemy9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 844, 327 )
