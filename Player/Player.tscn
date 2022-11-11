@@ -33,8 +33,14 @@ animations = [ {
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 4 )
+run_speed = 6.0
+time_to_run_speed = 0.07
+jump_height = 4.0
+jump_distance = 2.5
 min_jump_height = 2.0
+multi_jump_height = 4.0
 time_to_dash_distance = 0.2
+fast_fall_distance = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

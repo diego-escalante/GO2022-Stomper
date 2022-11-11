@@ -33,10 +33,14 @@ position = Vector2( 328, 364 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 439 )
+offset = Vector2( 0, -16 )
 current = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 439 )
+acceleration_enabled = true
+time_to_run_speed = 0.065
+min_jump_height = 2.5
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 visible = false
