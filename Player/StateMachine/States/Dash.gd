@@ -22,6 +22,7 @@ func physics_update(delta: float) -> void:
 		if stomped_object is Enemy:
 			stomped_object.die()
 			player.global_position += player.stomp_checker.stomp_delta_position
+			player.jumps_left = player.jumps_total
 			state_machine.transition_to("Air", {"is_jumping": true})
 			return
 	
