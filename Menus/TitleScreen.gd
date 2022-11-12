@@ -11,7 +11,8 @@ func _ready():
 
 
 func _on_start_button_pressed():
-	SceneChanger.change_scene("res://Main.tscn")
+	Events.emit_signal("goal_reached", true)
+	start_button.disabled = true
 
 
 func _on_settings_button_pressed():

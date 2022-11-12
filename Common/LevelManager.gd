@@ -23,10 +23,12 @@ func _on_player_died() -> void:
 	SceneChanger.reload_scene(level_load_delay)
 
 
-func _on_goal_reached() -> void:
+func _on_goal_reached(noDelay: bool) -> void:
+	var delay = 0 if noDelay else level_load_delay
 	var new_level = level_path_template % (current_level + 1)
 	if dir.file_exists(new_level):
 		current_level += 1
-		SceneChanger.change_scene(new_level, level_load_delay)
+		SceneChanger.change_scene(new_level, delay)
 	else:
-		print_debug("Next level not found.")
+		current_level = 0
+		SceneChanger.change_scene("res://Menus/EndScreen.tscn", delay)

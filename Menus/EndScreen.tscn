@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/FontResource.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/TitleFontResource.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menus/EndScreen.gd" type="Script" id=3]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 164.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="Menu"]
+margin_right = 288.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+text = "Wow! You did it!"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+margin_left = 108.0
+margin_top = 65.0
+margin_right = 179.0
+margin_bottom = 88.0
+size_flags_horizontal = 4
+
+[node name="RestartButton" type="Button" parent="Menu/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 71.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "Yes I did!"
