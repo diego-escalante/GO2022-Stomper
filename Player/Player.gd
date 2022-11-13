@@ -185,9 +185,20 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 		if stomped_object is Enemy:
 			if stomped_object is EnemyDash:
 				dash_enabled = true
-			
+			if stomped_object is EnemyDoubleJump:
+				set_multi_jump_enabled(true)
+				
 			stomped_object.die()
 			global_position += stomp_checker.stomp_delta_position
 			jumps_left = jumps_total
 			return true
 	return false
+	
+func set_multi_jump_enabled(is_enabled: bool) -> void:
+	print("set")
+	multi_jump_enabled = is_enabled
+	jumps_total = multi_jumps + 1 if multi_jump_enabled else 1
+	if is_enabled:
+		jumps_left += 1
+	elif jumps_left > 1:
+		jumps_left = 1
