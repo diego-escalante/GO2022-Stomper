@@ -39,14 +39,9 @@ func physics_update(delta: float) -> void:
 	if player.terminal_velocity_enabled:
 		player.velocity.y = clamp(player.velocity.y, -player.terminal_velocity, player.terminal_velocity)
 		
-	if player.stomp_checker.check(player.calculate_position_delta(player.velocity, player.jump_gravity, delta)):
-		var stomped_object = player.stomp_checker.stomped_object.owner
-		if stomped_object is Enemy:
-			stomped_object.die()
-			player.global_position += player.stomp_checker.stomp_delta_position
-			player.jumps_left = player.jumps_total
-			state_machine.transition_to("Air", {"is_jumping": true})
-			return
+	if player.perform_stomp_if_able(gravity, delta):
+		state_machine.transition_to("Air", {"is_jumping": true})
+		return
 
 	# Move player.
 	player.velocity = player.move_and_slide_with_vertical_velocity_verlet(

@@ -178,3 +178,16 @@ func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer
 func player_die() -> void:
 	Events.emit_signal("player_died")
 	queue_free()
+	
+func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
+	if stomp_checker.check(calculate_position_delta(velocity, current_gravity, time_delta)):
+		var stomped_object = stomp_checker.stomped_object.owner
+		if stomped_object is Enemy:
+			if stomped_object is EnemyDash:
+				dash_enabled = true
+			
+			stomped_object.die()
+			global_position += stomp_checker.stomp_delta_position
+			jumps_left = jumps_total
+			return true
+	return false

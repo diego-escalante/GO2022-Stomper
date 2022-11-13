@@ -3,9 +3,9 @@ extends Path2D
 
 enum MovementType {BOUNCE, LOOP, CLAMP, STATIC}
 
-export(MovementType) var movement_type := MovementType.BOUNCE
+export(MovementType) var movement_type := MovementType.STATIC
 export var speed := 1.0
-export var pixels_per_unit := 18
+export var pixels_per_unit := 16
 export var is_reversing := false
 var path_length: float
 
