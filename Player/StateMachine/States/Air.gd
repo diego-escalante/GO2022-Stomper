@@ -20,6 +20,7 @@ func enter(msg:= {}) -> void:
 		# Turn off multi-jump if used.
 		if player.multi_jump_enabled and player.jumps_left == 0:
 			player.set_multi_jump_enabled(false)
+			player.animated_sprite.modulate = Color.white
 		
 	if msg.get("run_immediately", false):
 		physics_update(get_physics_process_delta_time())
