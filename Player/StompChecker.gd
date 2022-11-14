@@ -7,10 +7,14 @@ var stomp_delta_position
 onready var downCasts := $VerticalCasts.get_children()
 onready var rightCast := $HorizontalCasts/RightCast
 onready var leftCast := $HorizontalCasts/LeftCast
+onready var cooldown_timer := $CooldownTimer as Timer
 
 # TODO: This technically hits my infamous corner case, but in this case, it is
 # extremely unlikely to cause an issue. Fix it if it becomes an issue.
 func check(position_delta: Vector2) -> bool:
+	if cooldown_timer.time_left > 0:
+		return false
+	
 	var stomp_happened = false
 	stomp_delta_position = Vector2.ZERO
 	stomped_object = null
@@ -38,5 +42,8 @@ func check(position_delta: Vector2) -> bool:
 				stomp_delta_position.y = downCast.get_collision_point().y - downCast.global_position.y
 				stomped_object = downCast.get_collider()
 				break
+				
+	if stomp_happened:
+		cooldown_timer.start()
 
 	return stomp_happened

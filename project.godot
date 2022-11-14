@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemy/EnemyDoubleJump.gd"
 }, {
+"base": "Enemy",
+"class": "EnemyInvulnerable",
+"language": "GDScript",
+"path": "res://Enemy/EnemyInvulnerable.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemyDash": "",
 "EnemyDoubleJump": "",
+"EnemyInvulnerable": "",
 "Player": "",
 "PlayerState": "",
 "StateMachine": "",
