@@ -29,7 +29,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/z_index = 0
 
 [node name="TileMap" type="TileMap"]
-modulate = Color( 0.164706, 0.517647, 0.368627, 1 )
+modulate = Color( 0, 0, 0, 1 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0

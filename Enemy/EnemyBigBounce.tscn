@@ -28,7 +28,7 @@ cubic_interp = false
 loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
-modulate = Color( 0.501961, 1, 0, 1 )
+modulate = Color( 1, 1, 0, 1 )
 frames = SubResource( 2 )
 
 [node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]

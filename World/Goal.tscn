@@ -18,7 +18,7 @@ extents = Vector2( 8, 8 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0, 0.788235, 1, 1 )
+modulate = Color( 0, 1, 1, 1 )
 frames = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
