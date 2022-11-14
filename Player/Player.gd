@@ -23,6 +23,7 @@ export var jump_distance := 1.75
 export var jump_button := "jump"
 onready var jump_speed := 2 * jump_height * run_speed / jump_distance
 onready var jump_gravity := 2 * jump_height * run_speed * run_speed / (jump_distance * jump_distance)
+onready var big_jump_speed := sqrt(2 * jump_gravity * (jump_height * 2))
 
 # Minimum jump
 export var min_jump_enabled := true
@@ -185,8 +186,10 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 		if stomped_object is Enemy:
 			if stomped_object is EnemyDash:
 				dash_enabled = true
-			if stomped_object is EnemyDoubleJump:
+			elif stomped_object is EnemyDoubleJump:
 				set_multi_jump_enabled(true)
+			elif stomped_object is EnemyBigBounce:
+				velocity.y = -big_jump_speed
 				
 			stomped_object.die()
 			global_position += stomp_checker.stomp_delta_position

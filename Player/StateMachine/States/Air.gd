@@ -6,11 +6,12 @@ func enter(msg:= {}) -> void:
 	player.animated_sprite.set_animation("Jump")
 	
 	if msg.get("is_jumping", false):
-		# Perform jump.
-		player.velocity.y = -(
-				player.jump_speed if player.jumps_total == player.jumps_left else
-				player.multi_jump_speed
-		)
+		# Perform jump. (But don't update velocity if we are already moving 
+		if player.velocity.y > -player.jump_speed:
+			player.velocity.y = -(
+					player.jump_speed if player.jumps_total == player.jumps_left else
+					player.multi_jump_speed
+			)
 		gravity = player.jump_gravity
 		if player.min_jump_enabled and not Input.is_action_pressed(player.jump_button):
 			gravity = player.min_jump_gravity
