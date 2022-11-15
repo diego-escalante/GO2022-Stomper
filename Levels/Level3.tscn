@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Common/ToggleText.gd" type="Script" id=5]
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -16 )
+current = true
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 368, 0 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 8 )
+show_collision = true
+centered_textures = true
+tile_data = PoolIntArray( -851972, 1, 0, -917499, 1, 0, -917497, 1, 0, -917477, 1, 0, -786436, 1, 0, -851963, 1, 0, -851961, 1, 0, -851941, 1, 0, -720900, 1, 0, -786427, 1, 0, -786425, 1, 0, -786405, 1, 0, -655364, 1, 0, -720891, 1, 0, -720889, 1, 0, -720869, 1, 0, -589828, 1, 0, -655355, 1, 0, -655353, 1, 0, -655333, 1, 0, -524292, 1, 0, -589819, 1, 0, -589817, 1, 0, -589797, 1, 0, -458756, 1, 0, -524283, 1, 0, -524281, 1, 0, -524261, 1, 0, -393220, 1, 0, -458747, 1, 0, -458745, 1, 0, -458725, 1, 0, -327684, 1, 0, -393211, 1, 0, -393210, 1, 0, -393209, 1, 0, -393189, 1, 0, -262148, 1, 0, -327653, 1, 0, -196612, 1, 0, -262117, 1, 0, -131076, 1, 0, -196581, 1, 0, -65540, 1, 0, -131055, 1, 0, -131045, 1, 0, -4, 1, 0, -65530, 1, 0, -65519, 1, 0, -65509, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = -48.0
+margin_right = 160.0
+margin_bottom = -17.0
+text = "Tap Spacebar
+For Low Jump"
+align = 1
+script = ExtResource( 5 )
+is_visible = false
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 240.0
+margin_top = -80.0
+margin_right = 336.0
+margin_bottom = -49.0
+text = "Hold Spacebar
+For High Jump"
+align = 1
+script = ExtResource( 5 )
+is_visible = false
+
+[node name="Spikes" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, -64 )
+rotation = 3.14159
+
+[node name="Spikes2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, -64 )
+rotation = 3.14159
+
+[node name="Spikes3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, -64 )
+rotation = 3.14159
+
+[node name="Spikes4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, -32 )

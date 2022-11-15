@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Common/Hitbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy/EnemyDoubleJump.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1192, 10 )
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -16 )
+offset = Vector2( 0, -16 )
+current = true
+
+[node name="EnemyDoubleJump" parent="." instance=ExtResource( 6 )]
+position = Vector2( 160, -32 )
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -480 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 8 )
+show_collision = true
+centered_textures = true
+tile_data = PoolIntArray( -2818063, 1, 0, -2883583, 1, 0, -2752527, 1, 0, -2818047, 1, 0, -2686991, 1, 0, -2752511, 1, 0, -2621455, 1, 0, -2686975, 1, 0, -2555919, 1, 0, -2621439, 1, 0, -2490383, 1, 0, -2555903, 1, 0, -2424847, 1, 0, -2490367, 1, 0, -2359311, 1, 0, -2424831, 1, 0, -2293775, 1, 0, -2359295, 1, 0, -2228239, 1, 0, -2293759, 1, 0, -2162703, 1, 0, -2228223, 1, 0, -2097167, 1, 0, -2162687, 1, 0, -2031631, 1, 0, -2097151, 1, 0, -1966095, 1, 0, -2031615, 1, 0, -1900559, 1, 0, -1900548, 1, 0, -1900547, 1, 0, -1900546, 1, 0, -1900545, 1, 0, -1966080, 1, 0, -1966079, 1, 0, -1966078, 1, 0, -1966077, 1, 0, -1966076, 1, 0, -1966075, 1, 0, -1966074, 1, 0, -1966073, 1, 0, -1966072, 1, 0, -1966071, 1, 0, -1966070, 1, 0, -1966069, 1, 0, -1966068, 1, 0, -1966067, 1, 0, -1835023, 1, 0, -1900531, 1, 0, -1769487, 1, 0, -1834995, 1, 0, -1703951, 1, 0, -1769459, 1, 0, -1638415, 1, 0, -1703923, 1, 0, -1572879, 1, 0, -1638387, 1, 0, -1507343, 1, 0, -1572851, 1, 0, -1441807, 1, 0, -1507315, 1, 0, -1376271, 1, 0, -1441779, 1, 0, -1310735, 1, 0, -1376243, 1, 0, -1245199, 1, 0, -1310707, 1, 0, -1179663, 1, 0, -1245171, 1, 0, -1114127, 1, 0, -1179635, 1, 0, -1048591, 1, 0, -1114099, 1, 0, -983055, 1, 0, -1048563, 1, 0, -917519, 1, 0, -983027, 1, 0, -851983, 1, 0, -851972, 1, 0, -851971, 1, 0, -851970, 1, 0, -851969, 1, 0, -917504, 1, 0, -917503, 1, 0, -917502, 1, 0, -917501, 1, 0, -917500, 1, 0, -917491, 1, 0, -786447, 1, 0, -786446, 1, 0, -786445, 1, 0, -786444, 1, 0, -786443, 1, 0, -786442, 1, 0, -786441, 1, 0, -786440, 1, 0, -786439, 1, 0, -786438, 1, 0, -786437, 1, 0, -786436, 1, 0, -851955, 1, 0, -720900, 1, 0, -786419, 1, 0, -655364, 1, 0, -720883, 1, 0, -589828, 1, 0, -655347, 1, 0, -524292, 1, 0, -589811, 1, 0, -458756, 1, 0, -524275, 1, 0, -393220, 1, 0, -458739, 1, 0, -327684, 1, 0, -393203, 1, 0, -262148, 1, 0, -327667, 1, 0, -196612, 1, 0, -262131, 1, 0, -131076, 1, 0, -196595, 1, 0, -65540, 1, 0, -131059, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65523, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -16 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, -112 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, -160 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 5 )]
+position = Vector2( 32, 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 360, 0 )
+shape = SubResource( 1 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -112, -256 )
+
+[node name="EnemyDoubleJump2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -176, -304 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -112, -352 )
+
+[node name="Spikes" parent="." instance=ExtResource( 7 )]
+position = Vector2( -208, -208 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -192, -208 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -176, -208 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -160, -208 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 7 )]
+position = Vector2( -144, -208 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 7 )]
+position = Vector2( -128, -208 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 7 )]
+position = Vector2( -112, -208 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 7 )]
+position = Vector2( -96, -208 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 7 )]
+position = Vector2( -80, -208 )
+
+[node name="Spikes10" parent="." instance=ExtResource( 7 )]
+position = Vector2( -64, -208 )
+
+[node name="Spikes11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 128, 0 )
+
+[node name="Spikes12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 0 )
+
+[node name="Spikes13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 160, 0 )
+
+[node name="Spikes14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 176, 0 )
+
+[node name="Spikes15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 192, 0 )
+
+[node name="Spikes16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 208, 0 )

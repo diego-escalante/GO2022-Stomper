@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Enemy/EnemyDoubleJump.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Common/Hitbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -112, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1192, 10 )
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -16 )
+offset = Vector2( 0, -16 )
+current = true
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 416, -272 )
+
+[node name="EnemyDoubleJump" parent="Goal" instance=ExtResource( 1 )]
+position = Vector2( 224, 112 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 8 )
+show_collision = true
+centered_textures = true
+tile_data = PoolIntArray( -1966057, 1, 0, -1966039, 1, 0, -1900521, 1, 0, -1900503, 1, 0, -1834985, 1, 0, -1834967, 1, 0, -1769449, 1, 0, -1769431, 1, 0, -1703913, 1, 0, -1703895, 1, 0, -1638377, 1, 0, -1638359, 1, 0, -1572841, 1, 0, -1572823, 1, 0, -1507305, 1, 0, -1507287, 1, 0, -1441769, 1, 0, -1441751, 1, 0, -1376233, 1, 0, -1376215, 1, 0, -1310697, 1, 0, -1310679, 1, 0, -1245161, 1, 0, -1245143, 1, 0, -1179625, 1, 0, -1179607, 1, 0, -1114089, 1, 0, -1114088, 1, 0, -1114087, 1, 0, -1114086, 1, 0, -1114085, 1, 0, -1114084, 1, 0, -1114083, 1, 0, -1114082, 1, 0, -1114081, 1, 0, -1114080, 1, 0, -1114079, 1, 0, -1114078, 1, 0, -1114077, 1, 0, -1114076, 1, 0, -1114075, 1, 0, -1114071, 1, 0, -1048535, 1, 0, -917508, 1, 0, -982999, 1, 0, -851972, 1, 0, -917463, 1, 0, -786436, 1, 0, -851927, 1, 0, -720900, 1, 0, -786391, 1, 0, -655364, 1, 0, -720855, 1, 0, -589828, 1, 0, -655319, 1, 0, -524292, 1, 0, -589783, 1, 0, -458756, 1, 0, -524256, 1, 0, -524255, 1, 0, -524254, 1, 0, -524251, 1, 0, -524250, 1, 0, -524249, 1, 0, -524248, 1, 0, -524247, 1, 0, -393220, 1, 0, -458720, 1, 0, -458718, 1, 0, -458717, 1, 0, -458716, 1, 0, -458715, 1, 0, -327684, 1, 0, -393184, 1, 0, -262148, 1, 0, -327648, 1, 0, -196612, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262132, 1, 0, -262131, 1, 0, -262130, 1, 0, -262129, 1, 0, -262128, 1, 0, -262127, 1, 0, -262126, 1, 0, -262125, 1, 0, -262112, 1, 0, -131076, 1, 0, -196602, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -196589, 1, 0, -196576, 1, 0, -65540, 1, 0, -131066, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -131050, 1, 0, -131049, 1, 0, -131048, 1, 0, -131047, 1, 0, -131046, 1, 0, -131045, 1, 0, -131044, 1, 0, -131043, 1, 0, -131042, 1, 0, -131041, 1, 0, -131040, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -16 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="EnemyDoubleJump" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, -64 )
+curve = SubResource( 2 )
+movement_type = 0
+
+[node name="Hitbox" parent="." instance=ExtResource( 5 )]
+position = Vector2( 32, 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 360, 0 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 458.0
+margin_top = -64.0
+margin_right = 512.0
+margin_bottom = -33.0
+text = "Double
+Jump"
+align = 1
+
+[node name="Spikes" parent="." instance=ExtResource( 6 )]
+position = Vector2( 176, -48 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 192, -48 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 576, -112 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 592, -112 )

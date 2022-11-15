@@ -6,18 +6,18 @@ onready var fader := $Control/Fader
 
 # Reloads the current scene with a screen transition.
 func reload_scene(delay: float = 0) -> void:
-	yield(_fadeTo(Color("ff000000"), 0.5, delay), "completed")
+	yield(_fadeTo(Color("ff000000"), 0.25, delay), "completed")
 	get_tree().reload_current_scene()
-	yield(_fadeTo(Color("00000000"), 0.5), "completed")
+	yield(_fadeTo(Color("00000000"), 0.25), "completed")
 
 
 # Changes the scene with a screen transition.
 func change_scene(scene: String, delay: float = 0) -> void:
-	yield(_fadeTo(Color("ff000000"), 0.5, delay), "completed")
+	yield(_fadeTo(Color("ff000000"), 0.25, delay), "completed")
 	if get_tree().change_scene(scene) != OK:
 		printerr("Failed to change to scene %s" % scene)
 		
-	yield(_fadeTo(Color("00000000"), 0.5), "completed")
+	yield(_fadeTo(Color("00000000"), 0.25), "completed")
 
 
 # Fades the screen to a given color.
