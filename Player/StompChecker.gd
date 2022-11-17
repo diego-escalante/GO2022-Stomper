@@ -18,7 +18,7 @@ func check(position_delta: Vector2) -> bool:
 	var stomp_happened = false
 	stomp_delta_position = Vector2.ZERO
 	stomped_object = null
-	if position_delta.x != 0:
+	if position_delta.x != 0 and position_delta.y >= 0:
 		var hCast: RayCast2D = rightCast if position_delta.x > 0 else leftCast
 		var cast_to := hCast.cast_to
 		cast_to.x = position_delta.x
