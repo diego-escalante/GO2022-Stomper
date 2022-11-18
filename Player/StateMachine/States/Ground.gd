@@ -27,7 +27,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.jump_gravity * delta
 	
 	if player.perform_stomp_if_able(player.jump_gravity, delta):
-		state_machine.transition_to("Air", {"is_jumping": true})
+		state_machine.transition_to("Air", {"is_jumping": true, "is_stomping": true})
 		return
 		
 	player.velocity = player.move_and_slide_with_vertical_velocity_verlet(

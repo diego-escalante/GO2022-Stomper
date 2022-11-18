@@ -46,6 +46,7 @@ multi_jump_height = 4.0
 dash_enabled = false
 time_to_dash_distance = 0.2
 fast_fall_distance = 2.0
+jump_buffer_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -64,6 +65,11 @@ script = ExtResource( 3 )
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource( 2 )
+
+[node name="BounceTimer" type="Timer" parent="StateMachine/Air"]
+process_mode = 0
+wait_time = 0.05
+one_shot = true
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
@@ -111,6 +117,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="CooldownTimer" type="Timer" parent="StompChecker"]
+process_mode = 0
 wait_time = 0.1
 one_shot = true
 

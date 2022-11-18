@@ -1,19 +1,30 @@
 extends PlayerState
 
 var gravity: float
+onready var bounce_timer := $BounceTimer as Timer
+
+func _ready() -> void:
+	bounce_timer.connect("timeout", self, "_on_bounce_timer_timeout")
 
 func enter(msg:= {}) -> void:
 	player.animated_sprite.set_animation("Jump")
 	
+	if msg.get("is_stomping", false):
+		bounce_timer.start()
+	
 	if msg.get("is_jumping", false):
-		# Perform jump. (But don't update velocity if we are already moving 
+		# Perform jump. (But don't update velocity if we are already moving)
 		if player.velocity.y > -player.jump_speed:
 			player.velocity.y = -(
 					player.jump_speed if player.jumps_total == player.jumps_left else
 					player.multi_jump_speed
 			)
 		gravity = player.jump_gravity
-		if player.min_jump_enabled and not Input.is_action_pressed(player.jump_button):
+		if (
+				player.min_jump_enabled 
+				and not Input.is_action_pressed(player.jump_button) 
+				and not msg.get("is_stomping", false)
+		):
 			gravity = player.min_jump_gravity
 		player.jumps_left -= 1
 		
@@ -27,7 +38,7 @@ func enter(msg:= {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	if player.jumps_left > 0 and player.jump_enabled and player.consume_jump_press():
+	if player.jumps_left > 0 and player.jump_enabled and player.consume_jump_press() and bounce_timer.is_stopped():
 		state_machine.transition_to("Air", {"is_jumping": true, "run_immediately": true})
 		return
 	
@@ -46,7 +57,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.y = clamp(player.velocity.y, -player.terminal_velocity, player.terminal_velocity)
 		
 	if player.perform_stomp_if_able(gravity, delta):
-		state_machine.transition_to("Air", {"is_jumping": true})
+		state_machine.transition_to("Air", {"is_jumping": true, "is_stomping": true})
 		return
 
 	# Move player.
@@ -62,3 +73,12 @@ func physics_update(delta: float) -> void:
 	elif player.is_on_floor():
 		state_machine.transition_to("Ground")
 		return
+		
+		
+func exit() -> void:
+	bounce_timer.stop()
+		
+
+func _on_bounce_timer_timeout() -> void:
+	if not Input.is_action_pressed(player.jump_button) and player.min_jump_enabled:
+		gravity = player.min_jump_gravity

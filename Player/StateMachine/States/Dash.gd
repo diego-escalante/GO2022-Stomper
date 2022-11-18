@@ -20,7 +20,7 @@ func enter(msg:= {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if player.perform_stomp_if_able(0, delta):
-		state_machine.transition_to("Air", {"is_jumping": true})
+		state_machine.transition_to("Air", {"is_jumping": true, "is_stomping": true})
 		return
 	
 	player.velocity = player.move_and_slide_with_vertical_velocity_verlet(
