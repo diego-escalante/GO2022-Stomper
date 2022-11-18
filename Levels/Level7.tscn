@@ -17,11 +17,6 @@ extents = Vector2( 1192, 10 )
 
 [node name="Level" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -16 )
-offset = Vector2( 0, -16 )
-current = true
-
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 416, -272 )
 
@@ -36,9 +31,6 @@ tile_data = PoolIntArray( -1966057, 1, 0, -1966039, 1, 0, -1900521, 1, 0, -19005
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -16 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
 
 [node name="EnemyDoubleJump" parent="." instance=ExtResource( 1 )]
 position = Vector2( 320, -64 )

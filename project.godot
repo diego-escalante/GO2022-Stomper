@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Anchor2D",
+"language": "GDScript",
+"path": "res://Camera/Anchor2D.gd"
+}, {
+"base": "Camera2D",
+"class": "AnchorCamera2D",
+"language": "GDScript",
+"path": "res://Camera/AnchorCamera2D.gd"
+}, {
+"base": "Area2D",
+"class": "AnchorDetector2D",
+"language": "GDScript",
+"path": "res://Camera/AnchorDetector2D.gd"
+}, {
 "base": "Path2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -60,6 +75,9 @@ _global_script_classes=[ {
 "path": "res://Player/StompChecker.gd"
 } ]
 _global_script_class_icons={
+"Anchor2D": "",
+"AnchorCamera2D": "",
+"AnchorDetector2D": "",
 "Enemy": "",
 "EnemyBigBounce": "",
 "EnemyDash": "",
@@ -177,6 +195,7 @@ debug_previous={
 2d_physics/layer_2="Characters"
 2d_physics/layer_3="Oneway"
 2d_physics/layer_4="Stomp"
+2d_physics/layer_5="Anchor"
 
 [physics]
 

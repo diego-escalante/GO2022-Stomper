@@ -178,7 +178,8 @@ func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer
 
 func player_die() -> void:
 	Events.emit_signal("player_died")
-	queue_free()
+	animated_sprite.modulate = Color.transparent
+#	queue_free()
 	
 func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 	if stomp_checker.check(calculate_position_delta(velocity, current_gravity, time_delta)):

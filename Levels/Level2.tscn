@@ -6,10 +6,6 @@
 
 [node name="Level" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -16 )
-current = true
-
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 0 )
 
@@ -20,9 +16,6 @@ centered_textures = true
 tile_data = PoolIntArray( -786436, 1, 0, -851946, 1, 0, -720900, 1, 0, -786410, 1, 0, -655364, 1, 0, -720874, 1, 0, -589828, 1, 0, -655338, 1, 0, -524292, 1, 0, -589802, 1, 0, -458756, 1, 0, -524266, 1, 0, -393220, 1, 0, -458730, 1, 0, -327684, 1, 0, -393194, 1, 0, -262148, 1, 0, -327658, 1, 0, -196612, 1, 0, -262122, 1, 0, -131076, 1, 0, -196586, 1, 0, -65540, 1, 0, -131050, 1, 0, -4, 1, 0, -65514, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 65542, 1, 0, 65551, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
 
 [node name="Label" type="Label" parent="."]
 margin_left = 144.0

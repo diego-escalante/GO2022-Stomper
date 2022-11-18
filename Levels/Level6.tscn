@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Common/Hitbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Camera/Anchor2D.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -26,10 +27,6 @@ _data = {
 extents = Vector2( 1192, 10 )
 
 [node name="Level" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -16 )
-current = true
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 816, -256 )
@@ -156,9 +153,6 @@ position = Vector2( 737, -64 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 192, -32 )
 
@@ -195,3 +189,17 @@ position = Vector2( 32, 96 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 360, 0 )
 shape = SubResource( 1 )
+
+[node name="Anchor2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 432, -80 )
+scale = Vector2( 0.529, 2 )
+
+[node name="Anchor2D2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 672, -168 )
+scale = Vector2( 0.674, 0.859 )
+zoom_level = 2.0
+
+[node name="Anchor2D3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 176, -32 )
+x_axis_lock = false
+target_offset = Vector2( 96, 0 )

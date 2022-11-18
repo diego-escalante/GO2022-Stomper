@@ -71,16 +71,8 @@ position = Vector2( 32, 96 )
 position = Vector2( 368, 64 )
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -16 )
-offset = Vector2( 0, -16 )
-current = true
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -16 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 8 )

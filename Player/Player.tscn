@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/StompChecker.gd" type="Script" id=1]
 [ext_resource path="res://Player/StateMachine/States/Air.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Player/StateMachine/StateMachine.gd" type="Script" id=5]
 [ext_resource path="res://Player/StateMachine/States/Dash.gd" type="Script" id=6]
 [ext_resource path="res://16by16test.png" type="Texture" id=7]
+[ext_resource path="res://Camera/AnchorDetector2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Camera/AnchorCamera2D.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 8 )
@@ -111,3 +113,15 @@ collide_with_bodies = false
 [node name="CooldownTimer" type="Timer" parent="StompChecker"]
 wait_time = 0.1
 one_shot = true
+
+[node name="AnchorCamera2D" type="Camera2D" parent="."]
+current = true
+editor_draw_screen = false
+script = ExtResource( 9 )
+max_speed = 1500.0
+mass = 3.75
+
+[node name="AnchorDetector2D" parent="." instance=ExtResource( 8 )]
+
+[connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detached"]
+[connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detected"]
