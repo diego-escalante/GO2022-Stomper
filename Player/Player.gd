@@ -68,7 +68,7 @@ onready var _coyote_timer := _initialize_timer(coyote_time, "_on_coyote_timer_ti
 export var jump_buffer_time := 0.1
 onready var _jump_buffer_timer := _initialize_timer(jump_buffer_time)
 
-onready var animated_sprite := $AnimatedSprite
+onready var animated_sprite := $AnimatedSprite as AnimatedSprite
 onready var stomp_checker := $StompChecker as StompChecker
 onready var jumps_total: int = multi_jumps + 1 if multi_jump_enabled else 1
 onready var jumps_left := jumps_total
@@ -106,10 +106,10 @@ func move_and_slide_with_vertical_velocity_verlet(
 	
 	if velocity.x > 0:
 		facing_direction = Direction.RIGHT
-		animated_sprite.flip_h = true
+		animated_sprite.flip_h = false
 	elif velocity.x < 0:
 		facing_direction = Direction.LEFT
-		animated_sprite.flip_h = false
+		animated_sprite.flip_h = true
 	
 	if is_on_floor() or is_on_ceiling():
 		velocity.y = 0

@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(msg:= {}) -> void:
+	player.animated_sprite.set_animation("Dash")
 	player.velocity.y = 0
 	player.velocity.x = (
 			player.dash_speed if player.facing_direction == player.Direction.RIGHT 

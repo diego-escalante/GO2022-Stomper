@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/StompChecker.gd" type="Script" id=1]
 [ext_resource path="res://Player/StateMachine/States/Air.gd" type="Script" id=2]
@@ -6,30 +6,90 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=4]
 [ext_resource path="res://Player/StateMachine/StateMachine.gd" type="Script" id=5]
 [ext_resource path="res://Player/StateMachine/States/Dash.gd" type="Script" id=6]
-[ext_resource path="res://16by16test.png" type="Texture" id=7]
+[ext_resource path="res://Aesprite/player.png" type="Texture" id=7]
 [ext_resource path="res://Camera/AnchorDetector2D.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Camera/AnchorCamera2D.gd" type="Script" id=9]
+[ext_resource path="res://Player/AnimatedSprite.gd" type="Script" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 8 )
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 40, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 40, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 40, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 20, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 20, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 20, 16, 20 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 20, 16, 20 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle",
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "Dash",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 6 ), SubResource( 5 ), SubResource( 5 ), SubResource( 6 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 7 ) ],
 "loop": true,
+"name": "Idle",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": false,
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ SubResource( 9 ) ],
+"loop": false,
+"name": "Land",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "Run",
-"speed": 5.0
+"speed": 9.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.4831, 7 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 3
@@ -48,13 +108,17 @@ time_to_dash_distance = 0.2
 fast_fall_distance = 2.0
 jump_buffer_time = 0.5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 4.76837e-07, 2.38419e-07 )
+position = Vector2( 0.5, 0 )
 frames = SubResource( 2 )
 animation = "Idle"
+frame = 60
+playing = true
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -123,6 +187,7 @@ one_shot = true
 
 [node name="AnchorCamera2D" type="Camera2D" parent="."]
 current = true
+process_mode = 0
 editor_draw_screen = false
 script = ExtResource( 9 )
 max_speed = 1500.0

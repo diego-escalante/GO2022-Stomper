@@ -52,6 +52,11 @@ func physics_update(delta: float) -> void:
 		gravity = player.fast_fall_gravity
 	player.velocity.y += gravity * delta
 	
+	if player.velocity.y < 0:
+		player.animated_sprite.set_animation("Jump")
+	else:
+		player.animated_sprite.set_animation("Fall")
+	
 	# Clamp by terminal velocity.
 	if player.terminal_velocity_enabled:
 		player.velocity.y = clamp(player.velocity.y, -player.terminal_velocity, player.terminal_velocity)

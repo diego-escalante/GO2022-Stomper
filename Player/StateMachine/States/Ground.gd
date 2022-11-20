@@ -3,7 +3,7 @@ extends PlayerState
 func enter(msg:= {}) -> void:
 	player.stop_coyote_time()
 	player.jumps_left = player.jumps_total
-	player.animated_sprite.set_animation("Idle")
+	player.animated_sprite.set_animation("Land")
 
 func physics_update(delta: float) -> void:
 	if (
@@ -19,10 +19,11 @@ func physics_update(delta: float) -> void:
 	
 	player.update_run_velocity(delta)
 	
-	if player.velocity.x == 0:
-		player.animated_sprite.set_animation("Idle")
-	else:
-		player.animated_sprite.set_animation("Run")
+	if player.animated_sprite.get_animation() != "Land":
+		if player.velocity.x == 0 and player.animated_sprite.get_animation() != "Idle":
+			player.animated_sprite.set_animation("Idle")
+		elif player.velocity.x != 0:
+			player.animated_sprite.set_animation("Run")
 		
 	player.velocity.y += player.jump_gravity * delta
 	
