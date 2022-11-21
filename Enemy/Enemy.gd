@@ -10,6 +10,7 @@ export var is_reversing := false
 var path_length: float
 
 onready var path_follow := $PathFollow2D
+onready var animated_sprite := $PathFollow2D/AnimatedSprite as AnimatedSprite
 
 func _ready():
 	if movement_type == MovementType.STATIC:
@@ -35,7 +36,8 @@ func _ready():
 func _physics_process(delta):
 	if speed == 0:
 		return
-		
+	
+	var prev_x = path_follow.position.x
 	var move_amount = delta * speed * pixels_per_unit
 		
 	match movement_type:
@@ -54,6 +56,10 @@ func _physics_process(delta):
 					path_follow.offset = move_amount - path_follow.offset 
 				else:
 					path_follow.offset -= move_amount
+	
+	var delta_x = prev_x - path_follow.position.x
+	if not is_equal_approx(delta_x, 0):
+		animated_sprite.flip_h = delta_x > 0
 
 
 func die() -> void:

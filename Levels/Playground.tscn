@@ -105,4 +105,7 @@ position = Vector2( 912, 432 )
 position = Vector2( 384, 454 )
 
 [node name="Spikes" parent="." instance=ExtResource( 10 )]
-position = Vector2( 832, 432 )
+position = Vector2( 832, 440 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 816, 440 )
