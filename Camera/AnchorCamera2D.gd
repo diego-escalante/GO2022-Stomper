@@ -69,6 +69,12 @@ func update_zoom() -> void:
 # Gradually steer the camera to the target_position.
 func arrive_to(target_position: Vector2) -> void:
 	var distance_to_target := position.distance_to(target_position)
+	
+	# if the camera is very very close to the target, just snap to it.
+	if distance_to_target < 0.3:
+		position = target_position
+		return
+	
 	# We approach the `target_position` at maximum speed, taking the zoom into account, until we
 	# get close to the target point.
 	var desired_velocity := (target_position - position).normalized() * max_speed * zoom.x

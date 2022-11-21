@@ -112,7 +112,7 @@ jump_buffer_time = 0.5
 position = Vector2( 0.5, 0 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 60
+frame = 74
 playing = true
 script = ExtResource( 10 )
 
@@ -187,7 +187,6 @@ one_shot = true
 
 [node name="AnchorCamera2D" type="Camera2D" parent="."]
 current = true
-process_mode = 0
 editor_draw_screen = false
 script = ExtResource( 9 )
 max_speed = 1500.0
