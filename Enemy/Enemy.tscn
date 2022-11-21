@@ -44,22 +44,22 @@ cubic_interp = false
 loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
+modulate = Color( 0, 1, 0, 1 )
 frames = SubResource( 9 )
 animation = "Default"
-frame = 2
 playing = true
 
-[node name="Hitbox" parent="PathFollow2D/AnimatedSprite" instance=ExtResource( 2 )]
+[node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatedSprite/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Hitbox"]
 position = Vector2( 0, 1.5 )
 shape = SubResource( 3 )
 
-[node name="Stompbox" type="Area2D" parent="PathFollow2D/AnimatedSprite"]
+[node name="Stompbox" type="Area2D" parent="PathFollow2D"]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatedSprite/Stompbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Stompbox"]
 modulate = Color( 0, 1, 0, 1 )
 position = Vector2( 0, -4 )
 shape = SubResource( 4 )

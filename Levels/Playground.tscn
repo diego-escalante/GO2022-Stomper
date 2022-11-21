@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/Saw.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy/EnemyBigBounce.tscn" type="PackedScene" id=2]
@@ -15,6 +15,11 @@
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 31, 5, 0, 0, 0, 0, 31, 53, 0, 0, 0, 0, -33, 53, 0, 0, 0, 0, 31, 5 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64, 0 )
 }
 
 [sub_resource type="Curve2D" id=2]
@@ -39,10 +44,10 @@ acceleration_enabled = true
 time_to_run_speed = 0.065
 
 [node name="EnemyDoubleJump2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 704, 384 )
+position = Vector2( 688, 320 )
 
 [node name="EnemyDoubleJump3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 656, 336 )
+position = Vector2( 656, 320 )
 
 [node name="EnemyInvulnerable2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 584, 456 )
@@ -51,7 +56,7 @@ position = Vector2( 584, 456 )
 position = Vector2( 536, 456 )
 
 [node name="EnemyInvulnerable4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 488, 456 )
+position = Vector2( 704, 384 )
 
 [node name="EnemyInvulnerable5" parent="." instance=ExtResource( 9 )]
 position = Vector2( 440, 456 )
@@ -89,8 +94,14 @@ position = Vector2( 801, 363 )
 curve = SubResource( 1 )
 movement_type = 1
 
+[node name="EnemyBigBounce2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 656, 384 )
+curve = SubResource( 3 )
+movement_type = 0
+speed = 2.0
+
 [node name="Enemy9" parent="." instance=ExtResource( 6 )]
-position = Vector2( 844, 327 )
+position = Vector2( 672, 384 )
 
 [node name="Enemy10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 792, 301 )
@@ -105,10 +116,10 @@ speed = 2.0
 position = Vector2( 880, 432 )
 
 [node name="EnemyDash" parent="." instance=ExtResource( 7 )]
-position = Vector2( 768, 432 )
+position = Vector2( 720, 384 )
 
 [node name="EnemyDoubleJump" parent="." instance=ExtResource( 8 )]
-position = Vector2( 672, 416 )
+position = Vector2( 688, 384 )
 
 [node name="EnemyInvulnerable" parent="." instance=ExtResource( 9 )]
 position = Vector2( 912, 432 )

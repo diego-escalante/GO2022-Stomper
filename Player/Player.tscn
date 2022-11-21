@@ -112,7 +112,7 @@ jump_buffer_time = 0.5
 position = Vector2( 0.5, 0 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 6
+frame = 76
 playing = true
 script = ExtResource( 10 )
 

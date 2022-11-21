@@ -44,7 +44,7 @@ cubic_interp = false
 loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
-modulate = Color( 0, 0, 1, 1 )
+modulate = Color( 0, 1, 1, 1 )
 frames = SubResource( 2 )
 frame = 2
 playing = true

@@ -17,7 +17,7 @@ animations = [ {
 "frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
-"speed": 10.0
+"speed": 12.0
 } ]
 
 [sub_resource type="CircleShape2D" id=5]

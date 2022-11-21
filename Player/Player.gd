@@ -190,7 +190,7 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 				animated_sprite.modulate = Color(1, 0, 0)
 			elif stomped_object is EnemyDoubleJump:
 				set_multi_jump_enabled(true)
-				animated_sprite.modulate = Color(0, 0, 1)
+				animated_sprite.modulate = Color(0, 1, 1)
 			elif stomped_object is EnemyBigBounce:
 				velocity.y = -big_jump_speed
 				
