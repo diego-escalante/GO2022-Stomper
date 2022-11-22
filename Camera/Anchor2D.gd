@@ -11,5 +11,11 @@ export var y_axis_lock := true
 # Camera target offset; useful for a camera that looks ahead.
 export var target_offset := Vector2.ZERO
 
-# Should the camera lock onto the anchor instantly?
-export var instant_lock := false
+# Extents
+export var use_extents_as_limit := true
+var extents := Vector2.ZERO
+
+func _ready():
+	extents = $CollisionShape2D.get_shape().get_extents()
+	extents *= scale
+	print(extents)

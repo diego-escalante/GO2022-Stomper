@@ -7,8 +7,11 @@
 
 [node name="Level" type="Node2D"]
 
+[node name="Anchor2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, -64 )
+
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 256, 0 )
+position = Vector2( 248, -8 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 8 )
@@ -24,7 +27,3 @@ margin_right = 70.0
 margin_bottom = -24.0
 text = "Left and Right
 Arrows to Move"
-
-[node name="Anchor2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, -64 )
-instant_lock = true
