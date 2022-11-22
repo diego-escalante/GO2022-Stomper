@@ -107,13 +107,12 @@ dash_enabled = false
 dash_distance = 2.0
 time_to_dash_distance = 0.15
 fast_fall_distance = 1.75
-jump_buffer_time = 0.5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.5, -2 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 22
+frame = 61
 playing = true
 script = ExtResource( 10 )
 
