@@ -24,7 +24,7 @@ animations = [ {
 extents = Vector2( 5, 3.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 6, 2 )
+extents = Vector2( 5, 2 )
 
 [node name="EnemyInvulnerable" type="Path2D"]
 curve = null
@@ -37,7 +37,6 @@ loop = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]

@@ -20,6 +20,7 @@ var _target_zoom := 1.0
 var _x_axis_lock := false
 var _y_axis_lock := false
 var _target_offset := Vector2.ZERO
+var _instant_lock := false
 
 
 func _ready() -> void:
@@ -45,6 +46,7 @@ func _on_AnchorDetector2D_anchor_detected(anchor: Anchor2D) -> void:
 	_x_axis_lock = anchor.x_axis_lock
 	_y_axis_lock = anchor.y_axis_lock
 	_target_offset = anchor.target_offset
+	_instant_lock = anchor.instant_lock
 
 
 # Don't forget to connect an Anchor Detector's signal to this function.
@@ -54,6 +56,7 @@ func _on_AnchorDetector2D_anchor_detached() -> void:
 	_target_zoom = 1.0
 	_x_axis_lock = false
 	_y_axis_lock = false
+	_instant_lock = false
 
 
 # Smoothly update the zoom level using lerp.
@@ -68,6 +71,10 @@ func update_zoom() -> void:
 
 # Gradually steer the camera to the target_position.
 func arrive_to(target_position: Vector2) -> void:
+	if _instant_lock:
+		position = target_position
+		return
+	
 	var distance_to_target := position.distance_to(target_position)
 	
 	# if the camera is very very close to the target, just snap to it.

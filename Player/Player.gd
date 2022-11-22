@@ -185,13 +185,17 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 	if stomp_checker.check(calculate_position_delta(velocity, current_gravity, time_delta)):
 		var stomped_object = stomp_checker.stomped_object.owner
 		if stomped_object is Enemy:
-			if stomped_object is EnemyDash:
-				dash_enabled = true
-				animated_sprite.modulate = Color(1, 0, 0)
-			elif stomped_object is EnemyDoubleJump:
-				set_multi_jump_enabled(true)
-				animated_sprite.modulate = Color(0, 1, 1)
-			elif stomped_object is EnemyBigBounce:
+			var enemy := stomped_object as Enemy
+			match enemy.powerup:
+				Enemy.Powerup.DASH:
+					dash_enabled = true
+					set_multi_jump_enabled(false)
+					animated_sprite.modulate = enemy.animated_sprite.modulate
+				Enemy.Powerup.DOUBLE_JUMP:
+					dash_enabled = false
+					set_multi_jump_enabled(true)
+					animated_sprite.modulate = enemy.animated_sprite.modulate
+			if stomped_object is EnemyBigBounce:
 				velocity.y = -big_jump_speed
 				
 			stomped_object.die()

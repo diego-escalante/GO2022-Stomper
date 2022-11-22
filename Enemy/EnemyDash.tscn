@@ -2,7 +2,11 @@
 
 [ext_resource path="res://Aesprite/enemy.png" type="Texture" id=1]
 [ext_resource path="res://Common/Hitbox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Enemy/EnemyDash.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=9]
+script/source = "class_name EnemyDash
+extends Enemy
+"
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
@@ -36,7 +40,7 @@ extents = Vector2( 6, 2 )
 
 [node name="EnemyDash" type="Path2D"]
 curve = null
-script = ExtResource( 3 )
+script = SubResource( 9 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotate = false

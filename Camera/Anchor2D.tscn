@@ -6,6 +6,7 @@
 extents = Vector2( 160, 90 )
 
 [node name="Anchor2D" type="Area2D"]
+modulate = Color( 0.592157, 0, 1, 1 )
 collision_layer = 16
 collision_mask = 0
 monitoring = false

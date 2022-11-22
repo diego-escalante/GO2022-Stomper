@@ -98,21 +98,20 @@ collision_mask = 5
 script = ExtResource( 4 )
 run_speed = 6.0
 time_to_run_speed = 0.07
-jump_height = 4.0
+jump_height = 2.0
 jump_distance = 2.5
-min_jump_height = 2.0
 multi_jump_enabled = false
-multi_jump_height = 4.0
 dash_enabled = false
-time_to_dash_distance = 0.2
-fast_fall_distance = 2.0
+dash_distance = 2.0
+time_to_dash_distance = 0.15
+fast_fall_distance = 1.75
 jump_buffer_time = 0.5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.5, 0 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 76
+frame = 82
 playing = true
 script = ExtResource( 10 )
 
@@ -144,21 +143,21 @@ script = ExtResource( 1 )
 [node name="VerticalCasts" type="Node2D" parent="StompChecker"]
 
 [node name="DownCast1" type="RayCast2D" parent="StompChecker/VerticalCasts"]
-position = Vector2( -8, 8 )
+position = Vector2( -3, 9 )
 cast_to = Vector2( 0, 10 )
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="DownCast2" type="RayCast2D" parent="StompChecker/VerticalCasts"]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 9 )
 cast_to = Vector2( 0, 10 )
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="DownCast3" type="RayCast2D" parent="StompChecker/VerticalCasts"]
-position = Vector2( 8, 8 )
+position = Vector2( 3, 9 )
 cast_to = Vector2( 0, 10 )
 collision_mask = 8
 collide_with_areas = true
@@ -167,14 +166,14 @@ collide_with_bodies = false
 [node name="HorizontalCasts" type="Node2D" parent="StompChecker"]
 
 [node name="RightCast" type="RayCast2D" parent="StompChecker/HorizontalCasts"]
-position = Vector2( 8, 8 )
+position = Vector2( 3, 8 )
 cast_to = Vector2( 10, 0 )
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="LeftCast" type="RayCast2D" parent="StompChecker/HorizontalCasts"]
-position = Vector2( -8, 8 )
+position = Vector2( -3, 8 )
 cast_to = Vector2( -10, 0 )
 collision_mask = 8
 collide_with_areas = true

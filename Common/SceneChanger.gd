@@ -1,23 +1,26 @@
 extends Node
 # SceneChanger is a singleton (autoloaded) used to change or reload a scene with a basic transition.
 
+export var fade_time := 0.25
+
 var tween: SceneTreeTween
 onready var fader := $Control/Fader
 
+
 # Reloads the current scene with a screen transition.
 func reload_scene(delay: float = 0) -> void:
-	yield(_fadeTo(Color("ff000000"), 0.25, delay), "completed")
+	yield(_fadeTo(Color("ff000000"), fade_time, delay), "completed")
 	get_tree().reload_current_scene()
-	yield(_fadeTo(Color("00000000"), 0.25), "completed")
+	yield(_fadeTo(Color("00000000"), fade_time), "completed")
 
 
 # Changes the scene with a screen transition.
 func change_scene(scene: String, delay: float = 0) -> void:
-	yield(_fadeTo(Color("ff000000"), 0.25, delay), "completed")
+	yield(_fadeTo(Color("ff000000"), fade_time, delay), "completed")
 	if get_tree().change_scene(scene) != OK:
 		printerr("Failed to change to scene %s" % scene)
 		
-	yield(_fadeTo(Color("00000000"), 0.25), "completed")
+	yield(_fadeTo(Color("00000000"), fade_time), "completed")
 
 
 # Fades the screen to a given color.

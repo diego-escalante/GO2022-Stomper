@@ -6,19 +6,19 @@
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 18, 18 )
+region = Rect2( 0, 0, 18, 20 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 18, 0, 18, 18 )
+region = Rect2( 18, 0, 18, 20 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
-region = Rect2( 36, 0, 18, 18 )
+region = Rect2( 36, 0, 18, 20 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 54, 0, 18, 18 )
+region = Rect2( 54, 0, 18, 20 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -32,7 +32,7 @@ animations = [ {
 extents = Vector2( 5, 3.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 6, 2 )
+extents = Vector2( 5, 2 )
 
 [node name="EnemyBigBounce" type="Path2D"]
 curve = null
@@ -46,7 +46,6 @@ loop = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
 position = Vector2( 1, 0 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]

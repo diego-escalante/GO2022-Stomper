@@ -1,18 +1,39 @@
+tool
 class_name Enemy
 extends Path2D
 
 enum MovementType {BOUNCE, LOOP, CLAMP, STATIC}
+enum Powerup {NONE, DOUBLE_JUMP, DASH}
 
+export(Powerup) var powerup := Powerup.NONE setget _set_powerup
 export(MovementType) var movement_type := MovementType.STATIC
 export var speed := 1.0
 export var pixels_per_unit := 16
 export var is_reversing := false
 var path_length: float
 
-onready var path_follow := $PathFollow2D
+onready var path_follow := $PathFollow2D as PathFollow2D
 onready var animated_sprite := $PathFollow2D/AnimatedSprite as AnimatedSprite
 
+# This is a hack to bypass issue with setters using onready variables.
+# https://github.com/godotengine/godot-proposals/issues/325
+onready var _is_ready := true
+
+func _set_powerup(value) -> void:
+	powerup = value
+	match powerup:
+		Powerup.NONE:
+			$PathFollow2D/AnimatedSprite.modulate = Color(1,1,1)
+		Powerup.DASH:
+			$PathFollow2D/AnimatedSprite.modulate = Color(1,0,0)
+		Powerup.DOUBLE_JUMP:
+			$PathFollow2D/AnimatedSprite.modulate = Color(0,1,1)
+
+
 func _ready():
+	if Engine.editor_hint:
+		return
+	
 	if movement_type == MovementType.STATIC:
 		speed = 0
 	else:
@@ -34,6 +55,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if Engine.editor_hint:
+		return
+		
 	if speed == 0:
 		return
 	

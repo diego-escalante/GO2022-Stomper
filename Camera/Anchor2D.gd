@@ -8,5 +8,8 @@ export var zoom_level := 1.0
 export var x_axis_lock := true
 export var y_axis_lock := true
 
-# Camera target offset; useful for a camrea that looks ahead.
+# Camera target offset; useful for a camera that looks ahead.
 export var target_offset := Vector2.ZERO
+
+# Should the camera lock onto the anchor instantly?
+export var instant_lock := false
