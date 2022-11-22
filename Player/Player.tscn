@@ -110,15 +110,16 @@ fast_fall_distance = 1.75
 jump_buffer_time = 0.5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.5, 0 )
+position = Vector2( 0.5, -2 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 13
+frame = 22
 playing = true
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3 )
+visible = false
+position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -140,6 +141,8 @@ one_shot = true
 script = ExtResource( 6 )
 
 [node name="StompChecker" type="Node2D" parent="."]
+visible = false
+position = Vector2( 0, -2 )
 script = ExtResource( 1 )
 
 [node name="VerticalCasts" type="Node2D" parent="StompChecker"]
@@ -187,6 +190,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="AnchorCamera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -2 )
 current = true
 editor_draw_screen = false
 script = ExtResource( 9 )
@@ -194,6 +198,8 @@ max_speed = 1500.0
 mass = 3.75
 
 [node name="AnchorDetector2D" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, -2 )
 
 [connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detached"]
 [connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detected"]

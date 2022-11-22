@@ -1,90 +1,83 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Common/Hitbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Common/ToggleText.gd" type="Script" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1192, 10 )
+[ext_resource path="res://Camera/Anchor2D.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D"]
 
-[node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 672, 0 )
-
-[node name="TileMap" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, 8 )
-show_collision = true
-centered_textures = true
-tile_data = PoolIntArray( -851972, 1, 0, -917461, 1, 0, -786436, 1, 0, -851925, 1, 0, -720900, 1, 0, -786389, 1, 0, -655364, 1, 0, -720853, 1, 0, -589828, 1, 0, -655317, 1, 0, -524292, 1, 0, -589781, 1, 0, -458756, 1, 0, -524245, 1, 0, -393220, 1, 0, -458709, 1, 0, -327684, 1, 0, -393173, 1, 0, -262148, 1, 0, -327637, 1, 0, -196612, 1, 0, -262101, 1, 0, -131076, 1, 0, -196565, 1, 0, -65540, 1, 0, -131029, 1, 0, -4, 1, 0, -65493, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0, 40, 1, 0, 41, 1, 0, 42, 1, 0, 43, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 1, 0, 65568, 1, 0, 65569, 1, 0, 65570, 1, 0, 65571, 1, 0, 65572, 1, 0 )
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, -8 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 496.0
-margin_top = -32.0
-margin_right = 576.0
-margin_bottom = -1.0
-text = "STOMP!"
-align = 1
-script = ExtResource( 7 )
-is_visible = false
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 384, -32 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 544, 0 )
+position = Vector2( 104, -16 )
+scale = Vector2( -1, 1 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 296, -24 )
+scale = Vector2( -1, 1 )
 
 [node name="Spikes" parent="." instance=ExtResource( 6 )]
-position = Vector2( 96, 16 )
-
-[node name="Spikes2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 112, 16 )
-
-[node name="Spikes3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 208, 16 )
-
-[node name="Spikes4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 224, 16 )
-
-[node name="Spikes5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 320, 16 )
-
-[node name="Spikes6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 336, 16 )
-
-[node name="Spikes7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 352, 16 )
-
-[node name="Spikes8" parent="." instance=ExtResource( 6 )]
-position = Vector2( 368, 16 )
-
-[node name="Spikes9" parent="." instance=ExtResource( 6 )]
-position = Vector2( 384, 16 )
-
-[node name="Spikes10" parent="." instance=ExtResource( 6 )]
-position = Vector2( 496, 16 )
-
-[node name="Spikes11" parent="." instance=ExtResource( 6 )]
-position = Vector2( 512, 16 )
-
-[node name="Spikes12" parent="." instance=ExtResource( 6 )]
-position = Vector2( 528, 16 )
-
-[node name="Spikes13" parent="." instance=ExtResource( 6 )]
-position = Vector2( 544, 16 )
-
-[node name="Spikes14" parent="." instance=ExtResource( 6 )]
-position = Vector2( 560, 16 )
+position = Vector2( 152, -56 )
+rotation = 3.14159
 
 [node name="Spikes15" parent="." instance=ExtResource( 6 )]
-position = Vector2( 576, 16 )
+position = Vector2( 328, -88 )
+rotation = 3.14159
 
-[node name="Hitbox" parent="." instance=ExtResource( 5 )]
-position = Vector2( 32, 96 )
+[node name="Spikes2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 104, -56 )
+rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 360, 0 )
-shape = SubResource( 1 )
+[node name="Spikes3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 120, -56 )
+rotation = 3.14159
+
+[node name="Spikes4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 136, -56 )
+rotation = 3.14159
+
+[node name="Spikes10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 328, -56 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -655362, 0, 8, -655361, 0, 10, -720896, 0, 10, -720895, 0, 10, -720894, 0, 10, -720893, 0, 10, -720892, 0, 10, -720891, 0, 10, -720890, 0, 10, -720889, 0, 10, -720888, 0, 10, -720887, 0, 10, -720886, 0, 10, -720885, 0, 10, -720884, 0, 10, -720883, 0, 10, -720882, 0, 10, -720881, 0, 10, -720880, 0, 10, -720879, 0, 10, -720878, 0, 10, -720877, 0, 10, -720876, 0, 10, -720875, 0, 10, -720874, 0, 10, -720873, 0, 10, -720872, 0, 10, -720871, 0, 10, -720870, 0, 11, -589826, 0, 65544, -589825, 0, 131081, -655360, 0, 131081, -655359, 0, 131081, -655358, 0, 131081, -655357, 0, 131081, -655356, 0, 131081, -655355, 0, 131081, -655354, 0, 131081, -655353, 0, 131081, -655352, 0, 131081, -655351, 0, 131081, -655350, 0, 131081, -655349, 0, 131081, -655348, 0, 131081, -655347, 0, 131081, -655346, 0, 131081, -655345, 0, 131081, -655344, 0, 131081, -655343, 0, 131081, -655342, 0, 131081, -655341, 0, 131081, -655340, 0, 131081, -655339, 0, 131081, -655338, 0, 131081, -655337, 0, 131081, -655336, 0, 131081, -655335, 0, 131081, -655334, 0, 131083, -524290, 0, 65544, -524289, 0, 131078, -589824, 0, 196617, -589823, 0, 196617, -589822, 0, 196617, -589821, 0, 196617, -589820, 0, 196617, -589819, 0, 196617, -589818, 0, 131077, -589817, 0, 131081, -589816, 0, 131081, -589815, 0, 131078, -589814, 0, 196617, -589813, 0, 196617, -589812, 0, 196617, -589811, 0, 196617, -589810, 0, 196617, -589809, 0, 196617, -589808, 0, 196617, -589807, 0, 196617, -589806, 0, 196617, -589805, 0, 196617, -589804, 0, 196618, -589803, 0, 196617, -589802, 0, 196617, -589801, 0, 196617, -589800, 0, 196617, -589799, 0, 131077, -589798, 0, 131083, -458754, 0, 65544, -458753, 0, 131083, -524282, 0, 65544, -524281, 0, 131081, -524280, 0, 131081, -524279, 0, 131083, -524268, 0, 65536, -524263, 0, 65544, -524262, 0, 131083, -393218, 0, 65544, -393217, 0, 131083, -458746, 0, 65544, -458745, 0, 131081, -458744, 0, 131081, -458743, 0, 131083, -458732, 0, 131072, -458727, 0, 65544, -458726, 0, 131083, -327682, 0, 65544, -327681, 0, 131083, -393210, 0, 65544, -393209, 0, 131081, -393208, 0, 131081, -393207, 0, 131083, -393191, 0, 65544, -393190, 0, 131083, -262146, 0, 65544, -262145, 0, 131083, -327674, 0, 196616, -327673, 0, 196617, -327672, 0, 196617, -327671, 0, 196619, -327655, 0, 65544, -327654, 0, 131083, -196610, 0, 65544, -196609, 0, 131083, -262119, 0, 65544, -262118, 0, 131083, -131074, 0, 65544, -131073, 0, 131083, -196588, 0, 0, -196583, 0, 65544, -196582, 0, 131083, -65538, 0, 65544, -65537, 0, 131083, -131052, 0, 65536, -131047, 0, 65544, -131046, 0, 131083, -2, 0, 65544, -1, 0, 131083, -65516, 0, 65540, -65515, 0, 10, -65514, 0, 10, -65513, 0, 10, -65512, 0, 10, -65511, 0, 65541, -65510, 0, 131083, 65534, 0, 65544, 65535, 0, 65542, 0, 0, 10, 1, 0, 10, 2, 0, 10, 3, 0, 11, 9, 0, 8, 10, 0, 10, 11, 0, 10, 12, 0, 10, 13, 0, 10, 14, 0, 10, 15, 0, 11, 20, 0, 65544, 21, 0, 131081, 22, 0, 131081, 23, 0, 131081, 24, 0, 131081, 25, 0, 131081, 26, 0, 131083, 131070, 0, 65544, 131071, 0, 131081, 65536, 0, 131081, 65537, 0, 131081, 65538, 0, 131081, 65539, 0, 65542, 65540, 0, 10, 65541, 0, 10, 65542, 0, 10, 65543, 0, 10, 65544, 0, 10, 65545, 0, 65541, 65546, 0, 131081, 65547, 0, 131081, 65548, 0, 131081, 65549, 0, 131081, 65550, 0, 131081, 65551, 0, 65542, 65552, 0, 10, 65553, 0, 10, 65554, 0, 10, 65555, 0, 10, 65556, 0, 65541, 65557, 0, 131081, 65558, 0, 131081, 65559, 0, 131081, 65560, 0, 131081, 65561, 0, 131081, 65562, 0, 131083, 196606, 0, 196616, 196607, 0, 196617, 131072, 0, 196617, 131073, 0, 196617, 131074, 0, 196617, 131075, 0, 196617, 131076, 0, 196617, 131077, 0, 196617, 131078, 0, 196617, 131079, 0, 196617, 131080, 0, 196617, 131081, 0, 196617, 131082, 0, 196617, 131083, 0, 196617, 131084, 0, 196617, 131085, 0, 196617, 131086, 0, 196617, 131087, 0, 196617, 131088, 0, 196617, 131089, 0, 196617, 131090, 0, 196617, 131091, 0, 196617, 131092, 0, 196617, 131093, 0, 196617, 131094, 0, 196617, 131095, 0, 196617, 131096, 0, 196617, 131097, 0, 196617, 131098, 0, 196619 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 72, 8 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 88, 8 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 104, 8 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 120, 8 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 136, 8 )
+
+[node name="Spikes11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 264, 8 )
+
+[node name="Spikes12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 280, 8 )
+
+[node name="Spikes13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 296, 8 )
+
+[node name="Spikes14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 312, 8 )
+
+[node name="Anchor2D" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 200, -64 )
+scale = Vector2( 1.36, 1 )
+x_axis_lock = false

@@ -2,7 +2,7 @@ extends Node
 
 var current_level := 0
 var level_path_template := "res://Levels/Level%d.tscn"
-var level_load_delay := 1
+var level_load_delay := 0.5
 var dir := Directory.new()
 
 func _ready() -> void:

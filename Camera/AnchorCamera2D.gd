@@ -49,11 +49,10 @@ func _physics_process(delta: float) -> void:
 
 # Don't forget to connect an Anchor Detector's signal to this function.
 func _on_AnchorDetector2D_anchor_detected(anchor: Anchor2D) -> void:
-	if anchor.use_extents_as_limit:
-		limit_top = anchor.global_position.y - anchor.extents.y
-		limit_bottom = anchor.global_position.y + anchor.extents.y
-		limit_left = anchor.global_position.x - anchor.extents.x
-		limit_right = anchor.global_position.x + anchor.extents.x
+	limit_top = anchor.global_position.y - anchor.extents.y if anchor.use_extents_as_limit_top else -10_000_000
+	limit_bottom = anchor.global_position.y + anchor.extents.y if anchor.use_extents_as_limit_bottom else 10_000_000
+	limit_left = anchor.global_position.x - anchor.extents.x if anchor.use_extents_as_limit_left else -10_000_000
+	limit_right = anchor.global_position.x + anchor.extents.x if anchor.use_extents_as_limit_right else 10_000_000
 	_anchor_position = anchor.global_position
 	_target_zoom = anchor.zoom_level
 	_x_axis_lock = anchor.x_axis_lock

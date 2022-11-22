@@ -1,99 +1,45 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Common/Hitbox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemy/EnemyDoubleJump.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1192, 10 )
+[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Camera/Anchor2D.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D"]
 
-[node name="EnemyDoubleJump" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, -32 )
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -8 )
 
-[node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, -480 )
+[node name="Spikes" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, 8 )
 
-[node name="TileMap" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, 8 )
-show_collision = true
-centered_textures = true
-tile_data = PoolIntArray( -2818063, 1, 0, -2883583, 1, 0, -2752527, 1, 0, -2818047, 1, 0, -2686991, 1, 0, -2752511, 1, 0, -2621455, 1, 0, -2686975, 1, 0, -2555919, 1, 0, -2621439, 1, 0, -2490383, 1, 0, -2555903, 1, 0, -2424847, 1, 0, -2490367, 1, 0, -2359311, 1, 0, -2424831, 1, 0, -2293775, 1, 0, -2359295, 1, 0, -2228239, 1, 0, -2293759, 1, 0, -2162703, 1, 0, -2228223, 1, 0, -2097167, 1, 0, -2162687, 1, 0, -2031631, 1, 0, -2097151, 1, 0, -1966095, 1, 0, -2031615, 1, 0, -1900559, 1, 0, -1900548, 1, 0, -1900547, 1, 0, -1900546, 1, 0, -1900545, 1, 0, -1966080, 1, 0, -1966079, 1, 0, -1966078, 1, 0, -1966077, 1, 0, -1966076, 1, 0, -1966075, 1, 0, -1966074, 1, 0, -1966073, 1, 0, -1966072, 1, 0, -1966071, 1, 0, -1966070, 1, 0, -1966069, 1, 0, -1966068, 1, 0, -1966067, 1, 0, -1835023, 1, 0, -1900531, 1, 0, -1769487, 1, 0, -1834995, 1, 0, -1703951, 1, 0, -1769459, 1, 0, -1638415, 1, 0, -1703923, 1, 0, -1572879, 1, 0, -1638387, 1, 0, -1507343, 1, 0, -1572851, 1, 0, -1441807, 1, 0, -1507315, 1, 0, -1376271, 1, 0, -1441779, 1, 0, -1310735, 1, 0, -1376243, 1, 0, -1245199, 1, 0, -1310707, 1, 0, -1179663, 1, 0, -1245171, 1, 0, -1114127, 1, 0, -1179635, 1, 0, -1048591, 1, 0, -1114099, 1, 0, -983055, 1, 0, -1048563, 1, 0, -917519, 1, 0, -983027, 1, 0, -851983, 1, 0, -851972, 1, 0, -851971, 1, 0, -851970, 1, 0, -851969, 1, 0, -917504, 1, 0, -917503, 1, 0, -917502, 1, 0, -917501, 1, 0, -917500, 1, 0, -917491, 1, 0, -786447, 1, 0, -786446, 1, 0, -786445, 1, 0, -786444, 1, 0, -786443, 1, 0, -786442, 1, 0, -786441, 1, 0, -786440, 1, 0, -786439, 1, 0, -786438, 1, 0, -786437, 1, 0, -786436, 1, 0, -851955, 1, 0, -720900, 1, 0, -786419, 1, 0, -655364, 1, 0, -720883, 1, 0, -589828, 1, 0, -655347, 1, 0, -524292, 1, 0, -589811, 1, 0, -458756, 1, 0, -524275, 1, 0, -393220, 1, 0, -458739, 1, 0, -327684, 1, 0, -393203, 1, 0, -262148, 1, 0, -327667, 1, 0, -196612, 1, 0, -262131, 1, 0, -131076, 1, 0, -196595, 1, 0, -65540, 1, 0, -131059, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65523, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0 )
+[node name="Spikes2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88, 8 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -16 )
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, -16 )
+powerup = 1
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 192, -112 )
+[node name="Anchor2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 384, -136 )
+rotation = 3.14159
+scale = Vector2( 0.223663, -1 )
+x_axis_lock = false
+y_axis_lock = false
+use_extents_as_limit_left = false
+use_extents_as_limit_top = false
+use_extents_as_limit_bottom = false
 
-[node name="Enemy2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, -160 )
+[node name="Enemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 392, -88 )
+powerup = 1
 
-[node name="Hitbox" parent="." instance=ExtResource( 5 )]
-position = Vector2( 32, 96 )
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -917478, 0, 0, -851942, 0, 65536, -786406, 0, 65536, -655364, 0, 8, -655363, 0, 10, -655362, 0, 10, -655361, 0, 10, -720896, 0, 10, -720895, 0, 10, -720894, 0, 10, -720893, 0, 10, -720892, 0, 10, -720891, 0, 10, -720890, 0, 10, -720889, 0, 10, -720888, 0, 10, -720887, 0, 10, -720886, 0, 10, -720885, 0, 10, -720884, 0, 10, -720883, 0, 10, -720882, 0, 10, -720881, 0, 10, -720880, 0, 10, -720879, 0, 10, -720878, 0, 10, -720877, 0, 11, -720870, 0, 65536, -589828, 0, 65544, -589827, 0, 131081, -589826, 0, 131081, -589825, 0, 131081, -655360, 0, 131081, -655359, 0, 131081, -655358, 0, 131081, -655357, 0, 131081, -655356, 0, 131081, -655355, 0, 131081, -655354, 0, 131081, -655353, 0, 131081, -655352, 0, 131081, -655351, 0, 131081, -655350, 0, 131081, -655349, 0, 131081, -655348, 0, 131081, -655347, 0, 131081, -655346, 0, 131081, -655345, 0, 131081, -655344, 0, 131081, -655343, 0, 131081, -655342, 0, 131081, -655341, 0, 65547, -655340, 0, 196610, -655339, 0, 196610, -655338, 0, 196611, -655334, 0, 65536, -524292, 0, 65544, -524291, 0, 131081, -524290, 0, 131078, -524289, 0, 196617, -589824, 0, 196617, -589823, 0, 196617, -589822, 0, 196617, -589821, 0, 196617, -589820, 0, 196617, -589819, 0, 196617, -589818, 0, 196617, -589817, 0, 196617, -589816, 0, 196617, -589815, 0, 196617, -589814, 0, 196617, -589813, 0, 196617, -589812, 0, 196617, -589811, 0, 196617, -589810, 0, 196617, -589809, 0, 196617, -589808, 0, 196617, -589807, 0, 196617, -589806, 0, 196617, -589805, 0, 196619, -589798, 0, 65536, -458756, 0, 65544, -458755, 0, 131081, -458754, 0, 131083, -524262, 0, 65536, -393220, 0, 65544, -393219, 0, 131081, -393218, 0, 131083, -458726, 0, 65536, -327684, 0, 65544, -327683, 0, 131081, -327682, 0, 131083, -393190, 0, 65536, -262148, 0, 65544, -262147, 0, 131081, -262146, 0, 131083, -327654, 0, 65536, -196612, 0, 65544, -196611, 0, 131081, -196610, 0, 131083, -262128, 0, 8, -262127, 0, 10, -262126, 0, 10, -262125, 0, 6, -262124, 0, 196610, -262123, 0, 196610, -262122, 0, 196610, -262121, 0, 196610, -262120, 0, 196610, -262119, 0, 196610, -262118, 0, 131075, -131076, 0, 65544, -131075, 0, 131081, -131074, 0, 131083, -196592, 0, 65544, -196591, 0, 131081, -196590, 0, 131081, -196589, 0, 131083, -65540, 0, 65544, -65539, 0, 131081, -65538, 0, 131083, -131056, 0, 65544, -131055, 0, 131081, -131054, 0, 131081, -131053, 0, 131083, -4, 0, 65544, -3, 0, 131081, -2, 0, 131083, -65520, 0, 65544, -65519, 0, 131081, -65518, 0, 131081, -65517, 0, 131083, 65532, 0, 65544, 65533, 0, 131081, 65534, 0, 65542, 65535, 0, 10, 0, 0, 10, 1, 0, 10, 2, 0, 10, 3, 0, 11, 6, 0, 8, 7, 0, 10, 8, 0, 10, 9, 0, 10, 10, 0, 10, 11, 0, 10, 12, 0, 10, 13, 0, 10, 14, 0, 10, 15, 0, 10, 16, 0, 65541, 17, 0, 131081, 18, 0, 131081, 19, 0, 131083, 131068, 0, 65544, 131069, 0, 131081, 131070, 0, 131081, 131071, 0, 131081, 65536, 0, 131081, 65537, 0, 131081, 65538, 0, 131081, 65539, 0, 65542, 65540, 0, 10, 65541, 0, 10, 65542, 0, 65541, 65543, 0, 131081, 65544, 0, 131081, 65545, 0, 131081, 65546, 0, 131081, 65547, 0, 131081, 65548, 0, 131081, 65549, 0, 131081, 65550, 0, 131081, 65551, 0, 131081, 65552, 0, 131081, 65553, 0, 131081, 65554, 0, 131081, 65555, 0, 131083, 196604, 0, 196616, 196605, 0, 196617, 196606, 0, 196617, 196607, 0, 196617, 131072, 0, 196617, 131073, 0, 196617, 131074, 0, 196617, 131075, 0, 196617, 131076, 0, 196617, 131077, 0, 196617, 131078, 0, 196617, 131079, 0, 196617, 131080, 0, 196617, 131081, 0, 196617, 131082, 0, 196617, 131083, 0, 196617, 131084, 0, 196617, 131085, 0, 196617, 131086, 0, 196617, 131087, 0, 196617, 131088, 0, 196617, 131089, 0, 196617, 131090, 0, 196617, 131091, 0, 196619 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 360, 0 )
-shape = SubResource( 1 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -112, -256 )
-
-[node name="EnemyDoubleJump2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -176, -304 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -112, -352 )
-
-[node name="Spikes" parent="." instance=ExtResource( 7 )]
-position = Vector2( -208, -208 )
-
-[node name="Spikes2" parent="." instance=ExtResource( 7 )]
-position = Vector2( -192, -208 )
-
-[node name="Spikes3" parent="." instance=ExtResource( 7 )]
-position = Vector2( -176, -208 )
-
-[node name="Spikes4" parent="." instance=ExtResource( 7 )]
-position = Vector2( -160, -208 )
-
-[node name="Spikes5" parent="." instance=ExtResource( 7 )]
-position = Vector2( -144, -208 )
-
-[node name="Spikes6" parent="." instance=ExtResource( 7 )]
-position = Vector2( -128, -208 )
-
-[node name="Spikes7" parent="." instance=ExtResource( 7 )]
-position = Vector2( -112, -208 )
-
-[node name="Spikes8" parent="." instance=ExtResource( 7 )]
-position = Vector2( -96, -208 )
-
-[node name="Spikes9" parent="." instance=ExtResource( 7 )]
-position = Vector2( -80, -208 )
-
-[node name="Spikes10" parent="." instance=ExtResource( 7 )]
-position = Vector2( -64, -208 )
-
-[node name="Spikes11" parent="." instance=ExtResource( 7 )]
-position = Vector2( 128, 0 )
-
-[node name="Spikes12" parent="." instance=ExtResource( 7 )]
-position = Vector2( 144, 0 )
-
-[node name="Spikes13" parent="." instance=ExtResource( 7 )]
-position = Vector2( 160, 0 )
-
-[node name="Spikes14" parent="." instance=ExtResource( 7 )]
-position = Vector2( 176, 0 )
-
-[node name="Spikes15" parent="." instance=ExtResource( 7 )]
-position = Vector2( 192, 0 )
-
-[node name="Spikes16" parent="." instance=ExtResource( 7 )]
-position = Vector2( 208, 0 )
+[node name="Anchor2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, -64 )
+scale = Vector2( 1.28, 1 )
+x_axis_lock = false
+use_extents_as_limit_right = false
