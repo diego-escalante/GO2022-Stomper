@@ -11,6 +11,8 @@ onready var fader := $Control/Fader
 func reload_scene(delay: float = 0) -> void:
 	yield(_fadeTo(Color("ff000000"), fade_time, delay), "completed")
 	get_tree().reload_current_scene()
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	yield(_fadeTo(Color("00000000"), fade_time), "completed")
 
 
@@ -19,7 +21,8 @@ func change_scene(scene: String, delay: float = 0) -> void:
 	yield(_fadeTo(Color("ff000000"), fade_time, delay), "completed")
 	if get_tree().change_scene(scene) != OK:
 		printerr("Failed to change to scene %s" % scene)
-		
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	yield(_fadeTo(Color("00000000"), fade_time), "completed")
 
 
