@@ -38,7 +38,13 @@ func enter(msg:= {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	if player.jumps_left > 0 and player.jump_enabled and player.consume_jump_press() and bounce_timer.is_stopped():
+	if (
+			player.jumps_left > 0 
+			and player.jump_enabled 
+			and player.consume_jump_press() 
+			and bounce_timer.is_stopped()
+	):
+		print("jamp!")
 		state_machine.transition_to("Air", {"is_jumping": true, "run_immediately": true})
 		return
 	

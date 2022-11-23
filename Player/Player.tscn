@@ -112,7 +112,7 @@ fast_fall_distance = 1.75
 position = Vector2( 0.5, -2 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 19
+frame = 68
 playing = true
 script = ExtResource( 10 )
 

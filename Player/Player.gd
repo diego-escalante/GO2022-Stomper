@@ -125,9 +125,10 @@ func calculate_position_delta(
 ) -> Vector2:
 	return pixels_per_unit * (velocity + 0.5 * Vector2.UP * vertical_acceleration * time_delta) * time_delta
 
-
-func _unhandled_input(event):
-	if event.is_action_pressed(jump_button):
+# _unhandled_input seems to not actually handle input 100% correctly in an html build.
+# So I'm using _physics_process instead.
+func _process(delta) -> void:
+	if Input.is_action_just_pressed(jump_button):
 		_jump_buffer_timer.start()
 
 
