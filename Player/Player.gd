@@ -127,7 +127,7 @@ func calculate_position_delta(
 
 # _unhandled_input seems to not actually handle input 100% correctly in an html build.
 # So I'm using _physics_process instead.
-func _process(delta) -> void:
+func _physics_process(delta) -> void:
 	if Input.is_action_just_pressed(jump_button):
 		_jump_buffer_timer.start()
 

@@ -112,7 +112,7 @@ fast_fall_distance = 1.75
 position = Vector2( 0.5, -2 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 68
+frame = 70
 playing = true
 script = ExtResource( 10 )
 
@@ -133,7 +133,7 @@ script = ExtResource( 2 )
 
 [node name="BounceTimer" type="Timer" parent="StateMachine/Air"]
 process_mode = 0
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 
 [node name="Dash" type="Node" parent="StateMachine"]

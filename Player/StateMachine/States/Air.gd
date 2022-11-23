@@ -44,7 +44,6 @@ func physics_update(delta: float) -> void:
 			and player.consume_jump_press() 
 			and bounce_timer.is_stopped()
 	):
-		print("jamp!")
 		state_machine.transition_to("Air", {"is_jumping": true, "run_immediately": true})
 		return
 	
@@ -91,5 +90,6 @@ func exit() -> void:
 		
 
 func _on_bounce_timer_timeout() -> void:
+#	player.consume_jump_press()
 	if not Input.is_action_pressed(player.jump_button) and player.min_jump_enabled:
 		gravity = player.min_jump_gravity
