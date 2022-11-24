@@ -80,8 +80,12 @@ onready var collision_shape := $CollisionShape2D as CollisionShape2D
 var explosion := preload("res://Common/Explosion.tscn")
 
 var is_active := true
+var is_input_active := true
 
 func update_run_velocity(delta: float) -> void:
+	if not is_input_active:
+		velocity.x = 0
+		return
 	var target_velocity := 0.0
 	if run_enabled:
 		target_velocity = Input.get_axis(run_left_button, run_right_button) * run_speed
@@ -134,7 +138,7 @@ func calculate_position_delta(
 # _unhandled_input seems to not actually handle input 100% correctly in an html build.
 # So I'm using _physics_process instead.
 func _physics_process(delta) -> void:
-	if Input.is_action_just_pressed(jump_button):
+	if is_input_active and Input.is_action_just_pressed(jump_button):
 		_jump_buffer_timer.start()
 
 

@@ -37,7 +37,7 @@ func physics_update(delta: float) -> void:
 		delta
 	)
 	
-	if player.dash_enabled and Input.is_action_just_pressed("dash"):
+	if player.dash_enabled and player.is_input_active and Input.is_action_just_pressed("dash"):
 		# Remove a jump from the player when dashing, 
 		# otherwise they get an erroneous extra jump
 		# after leaving dash in the air.

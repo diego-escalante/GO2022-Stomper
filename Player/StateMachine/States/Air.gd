@@ -78,7 +78,7 @@ func physics_update(delta: float) -> void:
 	)
 	
 	# Handle transitions.
-	if player.dash_enabled and Input.is_action_just_pressed("dash"):
+	if player.dash_enabled and player.is_input_active and Input.is_action_just_pressed("dash"):
 		state_machine.transition_to("Dash")
 	elif player.is_on_floor():
 		state_machine.transition_to("Ground")
