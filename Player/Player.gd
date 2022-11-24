@@ -77,6 +77,8 @@ var facing_direction: int = Direction.RIGHT
 onready var circle := $Circle as Sprite
 onready var collision_shape := $CollisionShape2D as CollisionShape2D
 
+var explosion := preload("res://Common/Explosion.tscn")
+
 var is_active := true
 
 func update_run_velocity(delta: float) -> void:
@@ -184,12 +186,22 @@ func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer
 func player_die() -> void:
 	if is_active:
 		is_active = false
-		circle.visible = true
-		yield(FrameFreezer.freeze(0.5), "completed")
-		circle.visible = false
+#		circle.visible = true
+		yield(FrameFreezer.freeze(0.3), "completed")
+#		circle.visible = false
+		Events.emit_signal("add_trauma", 0.5)
 		Events.emit_signal("death_circle_done")
 		animated_sprite.visible = false
 		collision_shape.disabled = true
+		for i in [-1, 0, 1]:
+			for j in [-1, 0, 1]:
+				if i == 0 and j == 0:
+					continue
+				var inst := (explosion.instance()) as Explosion
+				inst.set_direction(Vector2(i, j))
+				inst.modulate = animated_sprite.modulate
+				add_child(inst)
+		yield(get_tree().create_timer(1), "timeout")
 		Events.emit_signal("player_died")
 
 func unpause() -> void:
@@ -197,6 +209,8 @@ func unpause() -> void:
 	
 func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 	if stomp_checker.check(calculate_position_delta(velocity, current_gravity, time_delta)):
+		FrameFreezer.freeze(0.05)
+		Events.emit_signal("add_trauma", 0.2)
 		var stomped_object = stomp_checker.stomped_object.owner
 		if stomped_object is Enemy:
 			var enemy := stomped_object as Enemy

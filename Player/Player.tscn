@@ -119,7 +119,7 @@ texture = ExtResource( 11 )
 position = Vector2( 0.5, -2 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 11
+frame = 66
 playing = true
 script = ExtResource( 10 )
 
