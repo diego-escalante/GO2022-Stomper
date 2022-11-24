@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://World/Saw.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy/EnemyBigBounce.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
@@ -12,12 +11,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 31, 5, 0, 0, 0, 0, 31, 53, 0, 0, 0, 0, -33, 53, 0, 0, 0, 0, 31, 5 )
-}
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, -32 )
+"points": PoolVector2Array( 0, 0, 0, 0, 8, -40, 0, 0, 0, 0, 64, -48, 0, 0, 0, 0, 40, -8, 0, 0, 0, 0, 64, 24 )
 }
 
 [node name="Main" type="Node2D"]
@@ -75,22 +69,8 @@ position = Vector2( 744, 455 )
 [node name="Enemy6" parent="." instance=ExtResource( 6 )]
 position = Vector2( 273, 293 )
 
-[node name="Enemy8" parent="." instance=ExtResource( 6 )]
-position = Vector2( 801, 363 )
-curve = SubResource( 1 )
-movement_type = 1
-
-[node name="Enemy9" parent="." instance=ExtResource( 6 )]
-position = Vector2( 672, 384 )
-
 [node name="Enemy10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 792, 301 )
-
-[node name="Saw" parent="." instance=ExtResource( 1 )]
-position = Vector2( 848, 416 )
-curve = SubResource( 2 )
-movement_type = 0
-speed = 2.0
 
 [node name="Goal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 880, 432 )
@@ -145,7 +125,9 @@ powerup = 1
 position = Vector2( 384, 432 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 544, 408 )
+position = Vector2( 624, 400 )
+curve = SubResource( 1 )
+movement_type = 0
 
 [node name="Enemy5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512, 384 )

@@ -8,6 +8,8 @@ export var speed := 1.0
 export var pixels_per_unit := 16
 export var is_reversing := false
 var path_length: float
+var trip_total_duration: float
+var trip_duration := 0.0
 
 onready var path_follow := $PathFollow2D
 
@@ -19,6 +21,7 @@ func _ready():
 			printerr("No curve set on path, enemy will not move.")
 		else:
 			path_length = curve.get_baked_length()
+			trip_total_duration = path_length / (speed * pixels_per_unit)
 		
 	match movement_type:
 		MovementType.LOOP:
@@ -42,15 +45,8 @@ func _physics_process(delta):
 		MovementType.LOOP, MovementType.CLAMP:
 			path_follow.offset += move_amount if not is_reversing else -move_amount
 		MovementType.BOUNCE:
-			if not is_reversing:
-				if path_follow.offset + move_amount > path_length:
-					is_reversing = true
-					path_follow.offset = path_length * 2 - path_follow.offset - move_amount
-				else:
-					path_follow.offset += move_amount
-			else:
-				if path_follow.offset - move_amount < 0:
-					is_reversing = false
-					path_follow.offset = move_amount - path_follow.offset 
-				else:
-					path_follow.offset -= move_amount
+			trip_duration += delta * (-1 if is_reversing else 1)
+			path_follow.offset = lerp(0, path_length, smoothstep(0,1, 1-(trip_duration/trip_total_duration)))
+			if trip_duration > trip_total_duration or trip_duration < 0:
+				trip_duration = clamp(trip_duration, 0, trip_total_duration)
+				is_reversing = !is_reversing
