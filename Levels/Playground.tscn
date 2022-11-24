@@ -23,7 +23,7 @@ position = Vector2( 448, 374 )
 position = Vector2( 544, 560 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 640, 432 )
+position = Vector2( 632, 424 )
 acceleration_enabled = true
 time_to_run_speed = 0.065
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Player/StompChecker.gd" type="Script" id=1]
 [ext_resource path="res://Player/StateMachine/States/Air.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Camera/AnchorDetector2D.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Camera/AnchorCamera2D.gd" type="Script" id=9]
 [ext_resource path="res://Player/AnimatedSprite.gd" type="Script" id=10]
+[ext_resource path="res://Aesprite/circle.png" type="Texture" id=11]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 7 )
@@ -108,11 +109,17 @@ dash_distance = 2.0
 time_to_dash_distance = 0.15
 fast_fall_distance = 1.75
 
+[node name="Circle" type="Sprite" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 11 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.5, -2 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 70
+frame = 11
 playing = true
 script = ExtResource( 10 )
 

@@ -88,6 +88,7 @@ run/main_scene="res://Levels/Playground.tscn"
 Events="*res://Common/Events.gd"
 SceneChanger="*res://Common/SceneChanger.tscn"
 LevelManager="*res://Common/LevelManager.gd"
+FrameFreezer="*res://Common/FrameFreezer.gd"
 
 [display]
 

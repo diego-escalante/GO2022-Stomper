@@ -24,6 +24,8 @@ animations = [ {
 radius = 6.0
 
 [node name="Saw" type="Path2D"]
+z_index = -2
+z_as_relative = false
 curve = null
 script = ExtResource( 3 )
 

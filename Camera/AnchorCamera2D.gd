@@ -37,6 +37,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not owner.is_active:
+		return
+		
 	update_zoom()
 	
 	var target_position := Vector2.ZERO

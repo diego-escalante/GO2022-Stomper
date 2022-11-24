@@ -74,6 +74,10 @@ onready var jumps_total: int = multi_jumps + 1 if multi_jump_enabled else 1
 onready var jumps_left := jumps_total
 var velocity := Vector2.ZERO
 var facing_direction: int = Direction.RIGHT
+onready var circle := $Circle as Sprite
+onready var collision_shape := $CollisionShape2D as CollisionShape2D
+
+var is_active := true
 
 func update_run_velocity(delta: float) -> void:
 	var target_velocity := 0.0
@@ -178,9 +182,18 @@ func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer
 
 
 func player_die() -> void:
-	Events.emit_signal("player_died")
-	animated_sprite.modulate = Color.transparent
-#	queue_free()
+	if is_active:
+		is_active = false
+		circle.visible = true
+		yield(FrameFreezer.freeze(0.5), "completed")
+		circle.visible = false
+		Events.emit_signal("death_circle_done")
+		animated_sprite.visible = false
+		collision_shape.disabled = true
+		Events.emit_signal("player_died")
+
+func unpause() -> void:
+	get_tree().paused = false
 	
 func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 	if stomp_checker.check(calculate_position_delta(velocity, current_gravity, time_delta)):

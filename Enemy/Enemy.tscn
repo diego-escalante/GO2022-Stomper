@@ -35,6 +35,7 @@ extents = Vector2( 5, 3.5 )
 extents = Vector2( 7, 2 )
 
 [node name="Enemy" type="Path2D"]
+z_as_relative = false
 curve = null
 script = ExtResource( 3 )
 
@@ -46,6 +47,7 @@ loop = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
 frames = SubResource( 9 )
 animation = "Default"
+frame = 1
 playing = true
 
 [node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]

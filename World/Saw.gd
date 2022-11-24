@@ -14,6 +14,8 @@ var trip_duration := 0.0
 onready var path_follow := $PathFollow2D
 
 func _ready():
+	Events.connect("death_circle_done", self, "_on_death_circle_done")
+	
 	if movement_type == MovementType.STATIC:
 		speed = 0
 	else:
@@ -50,3 +52,6 @@ func _physics_process(delta):
 			if trip_duration > trip_total_duration or trip_duration < 0:
 				trip_duration = clamp(trip_duration, 0, trip_total_duration)
 				is_reversing = !is_reversing
+
+func _on_death_circle_done() -> void:
+	z_index = -2
