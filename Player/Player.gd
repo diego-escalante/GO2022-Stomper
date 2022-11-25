@@ -78,9 +78,14 @@ onready var circle := $Circle as Sprite
 onready var collision_shape := $CollisionShape2D as CollisionShape2D
 
 var explosion := preload("res://Common/Explosion.tscn")
+var bonk := preload("res://Common/Bonk.tscn")
 
 var is_active := true
 var is_input_active := true
+
+func _ready() -> void:
+	animated_sprite.playing = true
+
 
 func update_run_velocity(delta: float) -> void:
 	if not is_input_active:
@@ -230,6 +235,12 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 			if stomped_object is EnemyBigBounce:
 				velocity.y = -big_jump_speed
 				
+			var new_bonk := bonk.instance() as Node2D
+			owner.add_child(new_bonk)
+			new_bonk.global_position = Vector2(
+					(global_position.x + stomped_object.global_position.x)/2, 
+					global_position.y + 8
+			)
 			stomped_object.die()
 			global_position += stomp_checker.stomp_delta_position
 			jumps_left = jumps_total
