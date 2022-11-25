@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menus/ChangeSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/FontSmallResource.tres" type="DynamicFont" id=2]
+
+[node name="ChangeSceneButton" type="Button"]
+margin_right = 64.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+text = "Button"
+script = ExtResource( 1 )

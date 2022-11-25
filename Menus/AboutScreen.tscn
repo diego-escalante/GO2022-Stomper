@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/FontResource.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/FontSmallResource.tres" type="DynamicFont" id=3]
+
+[node name="AboutScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 164.0
+
+[node name="Label" type="Label" parent="Menu"]
+margin_right = 288.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 1 )
+text = "About This Game"
+align = 1
+
+[node name="Label2" type="Label" parent="Menu"]
+margin_top = 21.0
+margin_right = 288.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 3 )
+text = "This game was created by Diego Escalante in November 2022 for the Github Game Off jam. The theme of the jam was \"cliche.\"
+
+Tools Used:
+> Godot
+> Aesprite
+
+Special thanks to my wonderful friends who playtested this game:
+Shannon, Matt"
+autowrap = true
+
+[node name="BackButton" parent="." instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 148.0
+margin_right = 304.0
+margin_bottom = 164.0
+text = "Back"
+scene = "res://Menus/TitleScreen.tscn"
