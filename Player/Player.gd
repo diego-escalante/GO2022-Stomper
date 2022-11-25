@@ -238,7 +238,7 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 			var new_bonk := bonk.instance() as Node2D
 			owner.add_child(new_bonk)
 			new_bonk.global_position = Vector2(
-					(global_position.x + stomped_object.global_position.x)/2, 
+					(global_position.x + stomped_object.path_follow.global_position.x)/2, 
 					global_position.y + 8
 			)
 			stomped_object.die()
