@@ -19,6 +19,7 @@ func enter(msg:= {}) -> void:
 					player.jump_speed if player.jumps_total == player.jumps_left else
 					player.multi_jump_speed
 			)
+			player.animation_player.play("Stretch")
 		gravity = player.jump_gravity
 		if (
 				player.min_jump_enabled 

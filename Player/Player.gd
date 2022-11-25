@@ -76,6 +76,7 @@ var velocity := Vector2.ZERO
 var facing_direction: int = Direction.RIGHT
 onready var circle := $Circle as Sprite
 onready var collision_shape := $CollisionShape2D as CollisionShape2D
+onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 var explosion := preload("res://Common/Explosion.tscn")
 var bonk := preload("res://Common/Bonk.tscn")

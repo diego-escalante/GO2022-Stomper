@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player/StompChecker.gd" type="Script" id=1]
 [ext_resource path="res://Player/StateMachine/States/Air.gd" type="Script" id=2]
@@ -92,6 +92,62 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.4831, 7 )
 
+[sub_resource type="Animation" id=14]
+resource_name = "Squash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, -0.4 ), Vector2( 0.5, -2 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Stretch"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, -3.2 ), Vector2( 0.5, -1.6 ) ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 3
 collision_layer = 2
@@ -116,7 +172,8 @@ z_as_relative = false
 texture = ExtResource( 11 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.5, -2 )
+position = Vector2( 0.5, -0.4 )
+scale = Vector2( 1.2, 0.8 )
 frames = SubResource( 2 )
 animation = "Idle"
 script = ExtResource( 10 )
@@ -204,6 +261,10 @@ mass = 3.75
 [node name="AnchorDetector2D" parent="." instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 0, -2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Squash = SubResource( 14 )
+anims/Stretch = SubResource( 15 )
 
 [connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detached"]
 [connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detected"]

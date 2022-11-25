@@ -4,6 +4,7 @@ func enter(msg:= {}) -> void:
 	player.stop_coyote_time()
 	player.jumps_left = player.jumps_total
 	player.animated_sprite.set_animation("Land")
+	player.animation_player.play("Squash")
 
 func physics_update(delta: float) -> void:
 	if (
