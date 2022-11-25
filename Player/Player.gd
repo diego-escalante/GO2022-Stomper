@@ -242,7 +242,7 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 					(global_position.x + stomped_object.path_follow.global_position.x)/2, 
 					global_position.y + 8
 			)
-			stomped_object.die()
+			stomped_object.stomped()
 			global_position += stomp_checker.stomp_delta_position
 			jumps_left = jumps_total
 			return true

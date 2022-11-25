@@ -2,6 +2,6 @@ tool
 class_name EnemyInvulnerable
 extends Enemy
 
-func die():
-	# This enemy does not die.
+func stomped():
+	# This enemy does not get stomped.
 	pass

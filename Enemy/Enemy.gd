@@ -16,6 +16,12 @@ var trip_duration := 0.0
 
 onready var path_follow := $PathFollow2D as PathFollow2D
 onready var animated_sprite := $PathFollow2D/AnimatedSprite as AnimatedSprite
+onready var hitbox := $PathFollow2D/Hitbox/CollisionShape2D as CollisionShape2D
+onready var stompbox := $PathFollow2D/Stompbox/CollisionShape2D as CollisionShape2D
+
+var is_stomped := false
+var gravity := 32 * pixels_per_unit
+var velocity := Vector2.ZERO
 
 # This is a hack to bypass issue with setters using onready variables.
 # https://github.com/godotengine/godot-proposals/issues/325
@@ -61,6 +67,12 @@ func _physics_process(delta):
 	if Engine.editor_hint:
 		return
 		
+	if is_stomped:
+		path_follow.rotation_degrees += 720 * delta * (-1 if velocity.x > 0 else 1)
+		path_follow.global_position += velocity * delta
+		velocity.y += gravity * delta
+		return
+		
 	if speed == 0:
 		return
 	
@@ -81,6 +93,15 @@ func _physics_process(delta):
 	if not is_equal_approx(delta_x, 0):
 		animated_sprite.flip_h = delta_x > 0
 
+func stomped() -> void:
+	is_stomped = true
+	hitbox.disabled = true
+	stompbox.disabled = true
+	movement_type = MovementType.STATIC
+	velocity.x = rand_range(-2 * pixels_per_unit, 2 * pixels_per_unit)
+	velocity.y = -6 * pixels_per_unit
+	get_tree().create_timer(5).connect("timeout", self, "die")
+	
 
 func die() -> void:
 	queue_free()
