@@ -5,6 +5,7 @@ func enter(msg:= {}) -> void:
 	player.jumps_left = player.jumps_total
 	player.animated_sprite.set_animation("Land")
 	player.animation_player.play("Squash")
+	player.stomp_combo = 0
 
 func physics_update(delta: float) -> void:
 	if (

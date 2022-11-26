@@ -47,7 +47,7 @@ loop = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D"]
 position = Vector2( 1, 0 )
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]

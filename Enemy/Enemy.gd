@@ -22,6 +22,16 @@ onready var stompbox := $PathFollow2D/Stompbox/CollisionShape2D as CollisionShap
 var is_stomped := false
 var gravity := 32 * pixels_per_unit
 var velocity := Vector2.ZERO
+var stomp_sound := [
+		AudioPlayer.STOMP1, 
+		AudioPlayer.STOMP2, 
+		AudioPlayer.STOMP3, 
+		AudioPlayer.STOMP4, 
+		AudioPlayer.STOMP5, 
+		AudioPlayer.STOMP6, 
+		AudioPlayer.STOMP7, 
+		AudioPlayer.STOMP8
+]
 
 # This is a hack to bypass issue with setters using onready variables.
 # https://github.com/godotengine/godot-proposals/issues/325
@@ -92,8 +102,13 @@ func _physics_process(delta):
 	var delta_x = prev_x - path_follow.position.x
 	if not is_equal_approx(delta_x, 0):
 		animated_sprite.flip_h = delta_x > 0
+		
+func play_stomp_sound(count: int = 1) -> void:
+	count = clamp(count, 1, 8)
+	AudioPlayer.play_sound(stomp_sound[count-1])
 
-func stomped() -> void:
+func stomped(count: int) -> void:
+	play_stomp_sound(count)
 	is_stomped = true
 	hitbox.disabled = true
 	stompbox.disabled = true

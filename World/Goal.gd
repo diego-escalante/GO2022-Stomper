@@ -7,6 +7,7 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
+		AudioPlayer.play_sound(AudioPlayer.GOAL)
 		Events.emit_signal("goal_reached", false)
 		animated_sprite.set_animation("Active")
 		body.is_input_active = false

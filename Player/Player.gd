@@ -78,6 +78,8 @@ onready var circle := $Circle as Sprite
 onready var collision_shape := $CollisionShape2D as CollisionShape2D
 onready var animation_player := $AnimationPlayer as AnimationPlayer
 
+var stomp_combo := 0
+
 var explosion := preload("res://Common/Explosion.tscn")
 var bonk := preload("res://Common/Bonk.tscn")
 
@@ -197,7 +199,9 @@ func player_die() -> void:
 	if is_active:
 		is_active = false
 #		circle.visible = true
+		AudioPlayer.play_sound(AudioPlayer.DEATH1)
 		yield(FrameFreezer.freeze(0.3), "completed")
+		AudioPlayer.play_sound(AudioPlayer.DEATH2)
 #		circle.visible = false
 		Events.emit_signal("add_trauma", 0.5)
 		Events.emit_signal("death_circle_done")
@@ -224,6 +228,8 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 		var stomped_object = stomp_checker.stomped_object.owner
 		if stomped_object is Enemy:
 			var enemy := stomped_object as Enemy
+			if not enemy is EnemyInvulnerable:
+				stomp_combo += 1
 			match enemy.powerup:
 				Enemy.Powerup.DASH:
 					dash_enabled = true
@@ -242,7 +248,7 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 					(global_position.x + stomped_object.path_follow.global_position.x)/2, 
 					global_position.y + 8
 			)
-			stomped_object.stomped()
+			stomped_object.stomped(stomp_combo)
 			global_position += stomp_checker.stomp_delta_position
 			jumps_left = jumps_total
 			return true

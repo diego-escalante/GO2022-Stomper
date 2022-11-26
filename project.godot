@@ -95,6 +95,7 @@ Events="*res://Common/Events.gd"
 SceneChanger="*res://Common/SceneChanger.tscn"
 LevelManager="*res://Common/LevelManager.gd"
 FrameFreezer="*res://Common/FrameFreezer.gd"
+AudioPlayer="*res://Audio/AudioPlayer.tscn"
 
 [display]
 

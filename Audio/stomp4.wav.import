@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/stomp4.wav-dcb6fa8fb3363f6a2dcff1c694a4feaa.sample"
+
+[deps]
+
+source_file="res://Audio/stomp4.wav"
+dest_files=[ "res://.import/stomp4.wav-dcb6fa8fb3363f6a2dcff1c694a4feaa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

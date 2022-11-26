@@ -2,6 +2,6 @@ tool
 class_name EnemyInvulnerable
 extends Enemy
 
-func stomped():
-	# This enemy does not get stomped.
-	pass
+func stomped(count: int):
+	# This enemy does not die when stomped.
+	AudioPlayer.play_sound(AudioPlayer.BINK)

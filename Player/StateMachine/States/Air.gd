@@ -31,8 +31,13 @@ func enter(msg:= {}) -> void:
 		
 		# Turn off multi-jump if used.
 		if player.multi_jump_enabled and player.jumps_left == 0:
+			if not msg.get("is_stomping", false):
+				AudioPlayer.play_sound(AudioPlayer.DOUBLE_JUMP)
 			player.set_multi_jump_enabled(false)
 			player.animated_sprite.modulate = Color.white
+		else:
+			if not msg.get("is_stomping", false):
+				AudioPlayer.play_sound(AudioPlayer.JUMP)
 		
 	if msg.get("run_immediately", false):
 		physics_update(get_physics_process_delta_time())

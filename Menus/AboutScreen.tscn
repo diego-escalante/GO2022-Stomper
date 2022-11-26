@@ -24,13 +24,14 @@ align = 1
 [node name="Label2" type="Label" parent="Menu"]
 margin_top = 21.0
 margin_right = 288.0
-margin_bottom = 126.0
+margin_bottom = 138.0
 custom_fonts/font = ExtResource( 3 )
 text = "This game was created by Diego Escalante in November 2022 for the Github Game Off jam. The theme of the jam was \"cliche.\"
 
 Tools Used:
 > Godot
 > Aesprite
+> ChipTone by SFB Games
 
 Special thanks to my wonderful friends who playtested this game:
 Shannon, Matt"
