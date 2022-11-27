@@ -57,7 +57,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 16 )
+extents = Vector2( 3.5, 16 )
 
 [node name="Goal" type="Node2D"]
 script = ExtResource( 2 )
@@ -65,7 +65,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Inactive"
-frame = 5
+frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -75,4 +75,5 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
+position = Vector2( -4.5, 0 )
 shape = SubResource( 2 )

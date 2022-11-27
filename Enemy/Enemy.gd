@@ -22,16 +22,9 @@ onready var stompbox := $PathFollow2D/Stompbox/CollisionShape2D as CollisionShap
 var is_stomped := false
 var gravity := 32 * pixels_per_unit
 var velocity := Vector2.ZERO
-var stomp_sound := [
-		AudioPlayer.STOMP1, 
-		AudioPlayer.STOMP2, 
-		AudioPlayer.STOMP3, 
-		AudioPlayer.STOMP4, 
-		AudioPlayer.STOMP5, 
-		AudioPlayer.STOMP6, 
-		AudioPlayer.STOMP7, 
-		AudioPlayer.STOMP8
-]
+var stomp_sound: Array
+
+var player: Node2D
 
 # This is a hack to bypass issue with setters using onready variables.
 # https://github.com/godotengine/godot-proposals/issues/325
@@ -51,6 +44,19 @@ func _set_powerup(value) -> void:
 func _ready():
 	if Engine.editor_hint:
 		return
+		
+	stomp_sound = [
+			AudioPlayer.STOMP1, 
+			AudioPlayer.STOMP2, 
+			AudioPlayer.STOMP3, 
+			AudioPlayer.STOMP4, 
+			AudioPlayer.STOMP5, 
+			AudioPlayer.STOMP6, 
+			AudioPlayer.STOMP7, 
+			AudioPlayer.STOMP8
+	]
+		
+	player = get_tree().get_nodes_in_group("Player")[0] as Node2D
 	
 	if movement_type == MovementType.STATIC:
 		speed = 0
@@ -82,6 +88,13 @@ func _physics_process(delta):
 		path_follow.global_position += velocity * delta
 		velocity.y += gravity * delta
 		return
+	
+	if movement_type == MovementType.STATIC:	
+		if player.global_position.x > global_position.x + 16:
+			animated_sprite.flip_h = false
+		elif player.global_position.x < global_position.x - 16:
+			animated_sprite.flip_h = true
+		
 		
 	if speed == 0:
 		return
