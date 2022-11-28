@@ -224,7 +224,7 @@ func unpause() -> void:
 func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 	if stomp_checker.check(calculate_position_delta(velocity, current_gravity, time_delta)):
 		FrameFreezer.freeze(0.05)
-		Events.emit_signal("add_trauma", 0.2)
+		Events.emit_signal("add_trauma", 0.15)
 		var stomped_object = stomp_checker.stomped_object.owner
 		if stomped_object is Enemy:
 			var enemy := stomped_object as Enemy

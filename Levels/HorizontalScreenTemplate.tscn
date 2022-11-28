@@ -1,0 +1,165 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Camera/Anchor2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy/EnemyInvulnerable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/Saw.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemy/EnemyBigBounce.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -112, 0 )
+}
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 488, 0 )
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="Anchor2D" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 424, -80 )
+scale = Vector2( 2.72, 1 )
+x_axis_lock = false
+
+[node name="Saw" parent="." instance=ExtResource( 6 )]
+position = Vector2( 200, -112 )
+curve = SubResource( 2 )
+movement_type = 2
+speed = 0.75
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 104, -104 )
+
+[node name="Goal" parent="." instance=ExtResource( 5 )]
+position = Vector2( 24, -16 )
+
+[node name="Spikes" parent="." instance=ExtResource( 8 )]
+position = Vector2( 248, -104 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 200, -8 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 216, -8 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 232, -8 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 248, -8 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 264, -8 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 280, -8 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 296, -8 )
+
+[node name="Spikes10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 312, -8 )
+
+[node name="Spikes11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 328, -8 )
+
+[node name="Spikes12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 344, -8 )
+
+[node name="Spikes13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 360, -8 )
+
+[node name="Spikes14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 376, -8 )
+
+[node name="Spikes15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 392, -8 )
+
+[node name="Spikes16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 408, -8 )
+
+[node name="Spikes17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 424, -8 )
+
+[node name="Spikes18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 440, -8 )
+
+[node name="Spikes27" parent="." instance=ExtResource( 8 )]
+position = Vector2( 456, -8 )
+
+[node name="Spikes28" parent="." instance=ExtResource( 8 )]
+position = Vector2( 472, -8 )
+
+[node name="Spikes29" parent="." instance=ExtResource( 8 )]
+position = Vector2( 488, -8 )
+
+[node name="Spikes30" parent="." instance=ExtResource( 8 )]
+position = Vector2( 504, -8 )
+
+[node name="Spikes31" parent="." instance=ExtResource( 8 )]
+position = Vector2( 520, -8 )
+
+[node name="Spikes19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 72, -8 )
+
+[node name="Spikes20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 88, -8 )
+
+[node name="Spikes21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 104, -8 )
+
+[node name="Spikes22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 120, -8 )
+
+[node name="Spikes23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 136, -8 )
+
+[node name="Spikes24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 152, -8 )
+
+[node name="Spikes25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 168, -8 )
+
+[node name="Spikes26" parent="." instance=ExtResource( 8 )]
+position = Vector2( 184, -8 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 392, -104 )
+
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 512, -64 )
+powerup = 2
+
+[node name="EnemyInvulnerable" parent="." instance=ExtResource( 4 )]
+position = Vector2( 24, -40 )
+curve = SubResource( 1 )
+movement_type = 0
+speed = 2.75
+starting_offset = 1.0
+
+[node name="Saw" parent="EnemyInvulnerable" instance=ExtResource( 6 )]
+position = Vector2( 296, -16 )
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -655361, 0, 8, -720896, 0, 10, -720895, 0, 10, -720894, 0, 10, -720893, 0, 10, -720892, 0, 10, -720891, 0, 10, -720890, 0, 6, -720889, 0, 196610, -720888, 0, 196610, -720887, 0, 196610, -720886, 0, 196610, -720885, 0, 196610, -720884, 0, 196610, -720883, 0, 196610, -720882, 0, 196610, -720881, 0, 196610, -720880, 0, 196610, -720879, 0, 196610, -720878, 0, 196610, -720877, 0, 196610, -720876, 0, 196610, -720875, 0, 196610, -720874, 0, 196610, -720873, 0, 196610, -720872, 0, 196610, -720871, 0, 196610, -720870, 0, 196610, -720869, 0, 196610, -720868, 0, 196610, -720867, 0, 196610, -720866, 0, 196610, -720865, 0, 196610, -720864, 0, 196610, -720863, 0, 3, -589825, 0, 65544, -655360, 0, 131081, -655359, 0, 131081, -655358, 0, 131081, -655357, 0, 131081, -655356, 0, 131081, -655355, 0, 131081, -655354, 0, 131083, -655327, 0, 65536, -524289, 0, 65544, -589824, 0, 131081, -589823, 0, 131081, -589822, 0, 131081, -589821, 0, 131081, -589820, 0, 131078, -589819, 0, 196617, -589818, 0, 196619, -589791, 0, 65536, -458753, 0, 65544, -524288, 0, 131081, -524287, 0, 131081, -524286, 0, 131081, -524285, 0, 131081, -524284, 0, 131083, -524255, 0, 65536, -393217, 0, 65544, -458752, 0, 131081, -458751, 0, 131081, -458750, 0, 131081, -458749, 0, 131081, -458748, 0, 131083, -458719, 0, 65536, -327681, 0, 65544, -393216, 0, 131081, -393215, 0, 131081, -393214, 0, 131081, -393213, 0, 131081, -393212, 0, 65542, -393211, 0, 6, -393210, 0, 196611, -393201, 0, 0, -393192, 0, 0, -393183, 0, 65536, -262145, 0, 65544, -327680, 0, 131081, -327679, 0, 131081, -327678, 0, 131081, -327677, 0, 131081, -327676, 0, 131081, -327675, 0, 131083, -327665, 0, 65536, -327656, 0, 65536, -327647, 0, 65536, -196609, 0, 131076, -262144, 0, 196617, -262143, 0, 196617, -262142, 0, 196617, -262141, 0, 196617, -262140, 0, 196617, -262139, 0, 196619, -262129, 0, 131072, -262120, 0, 131072, -262111, 0, 65536, -131073, 0, 65536, -196575, 0, 65536, -65537, 0, 65536, -131039, 0, 65536, -1, 0, 65536, -65503, 0, 65536, 65535, 0, 131073, 0, 0, 196610, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 196610, 7, 0, 196610, 8, 0, 196610, 9, 0, 196610, 10, 0, 196610, 11, 0, 196610, 12, 0, 196610, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196610, 17, 0, 196610, 18, 0, 196610, 19, 0, 196610, 20, 0, 196610, 21, 0, 196610, 22, 0, 196610, 23, 0, 196610, 24, 0, 196610, 25, 0, 196610, 26, 0, 196610, 27, 0, 196610, 28, 0, 196610, 29, 0, 196610, 30, 0, 196610, 31, 0, 196610, 32, 0, 196610, 33, 0, 131075 )
+
+[node name="EnemyBigBounce" parent="." instance=ExtResource( 9 )]
+position = Vector2( 272, -64 )
+
+[node name="EnemyBigBounce2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 416, -64 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 224, -64 )
+powerup = 1
+
+[node name="Enemy3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 368, -64 )
+powerup = 1

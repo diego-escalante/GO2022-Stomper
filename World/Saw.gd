@@ -7,6 +7,7 @@ export(MovementType) var movement_type := MovementType.STATIC
 export var speed := 1.0
 export var pixels_per_unit := 16
 export var is_reversing := false
+export var starting_offset := 0.0
 var path_length: float
 var trip_total_duration: float
 var trip_duration := 0.0
@@ -30,11 +31,13 @@ func _ready():
 			path_follow.loop = true
 		MovementType.BOUNCE, MovementType.CLAMP:
 			path_follow.loop = false
-			
+	
+	starting_offset = clamp(starting_offset, 0, 1)
+	trip_duration = trip_total_duration * starting_offset
 	if not is_reversing:
-		path_follow.unit_offset = 0
+		path_follow.unit_offset = starting_offset
 	else:
-		path_follow.unit_offset = 1
+		path_follow.unit_offset = 1 - starting_offset
 
 
 func _physics_process(delta):
