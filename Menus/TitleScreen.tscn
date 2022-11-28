@@ -28,7 +28,7 @@ align = 1
 margin_left = 103.0
 margin_top = 65.0
 margin_right = 185.0
-margin_bottom = 134.0
+margin_bottom = 88.0
 size_flags_horizontal = 4
 
 [node name="StartButton" type="Button" parent="Menu/VBoxContainer"]
@@ -40,6 +40,7 @@ text = "Start Game"
 
 [node name="SettingsButton" type="Button" parent="Menu/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 margin_top = 27.0
 margin_right = 82.0
 margin_bottom = 50.0
@@ -47,8 +48,9 @@ custom_fonts/font = ExtResource( 1 )
 text = "Settings"
 
 [node name="AboutButton" parent="Menu/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 54.0
+visible = false
+margin_top = 27.0
 margin_right = 82.0
-margin_bottom = 69.0
+margin_bottom = 42.0
 text = "About"
 scene = "res://Menus/AboutScreen.tscn"
