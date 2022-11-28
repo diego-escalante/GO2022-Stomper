@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Enemy/EnemyInvulnerable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://World/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/FontSmallResource.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Camera/Anchor2D.tscn" type="PackedScene" id=8]
 
 [node name="Level" type="Node2D"]
@@ -58,7 +59,7 @@ position = Vector2( 40, -16 )
 powerup = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 272, 8 )
+position = Vector2( 336, 8 )
 
 [node name="Spikes3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 232, 56 )
@@ -105,5 +106,13 @@ position = Vector2( 392, -8 )
 rotation = 3.14159
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 336, 8 )
+position = Vector2( 272, 8 )
 powerup = 2
+
+[node name="Label" type="Label" parent="."]
+margin_left = -120.0
+margin_top = -40.0
+margin_right = -56.0
+margin_bottom = -26.0
+custom_fonts/font = ExtResource( 7 )
+text = "Press Shift to Dash."

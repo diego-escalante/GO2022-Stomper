@@ -164,6 +164,7 @@ dash_enabled = false
 dash_distance = 2.0
 time_to_dash_distance = 0.15
 fast_fall_distance = 1.75
+terminal_velocity_factor = 2.0
 
 [node name="Circle" type="Sprite" parent="."]
 visible = false
