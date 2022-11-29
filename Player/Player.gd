@@ -74,7 +74,6 @@ onready var jumps_total: int = multi_jumps + 1 if multi_jump_enabled else 1
 onready var jumps_left := jumps_total
 var velocity := Vector2.ZERO
 var facing_direction: int = Direction.RIGHT
-onready var circle := $Circle as Sprite
 onready var collision_shape := $CollisionShape2D as CollisionShape2D
 onready var animation_player := $AnimationPlayer as AnimationPlayer
 
@@ -117,9 +116,11 @@ func move_and_slide_with_vertical_velocity_verlet(
 	# This also takes in a scale of pixels_per_unit so that velocities and accelerations can remain 
 	# represented in more intuitive developer-defined units (e.g. player height, block size, etc.)
 	# rather than pixels.
+	
+	# Added extra max_slides and a floor degree of 0 in the hopes that this fixes that corner bug.
 	move_and_slide(
 			pixels_per_unit * (velocity + 0.5 * Vector2.UP * vertical_acceleration * delta), 
-			Vector2.UP
+			Vector2.UP, false, 6, 0
 	)
 	
 	if velocity.x > 0:
@@ -198,13 +199,10 @@ func _initialize_timer(wait_time: float, timeout_callback: String = "") -> Timer
 func player_die() -> void:
 	if is_active:
 		is_active = false
-#		circle.visible = true
 		AudioPlayer.play_sound(AudioPlayer.DEATH1)
 		yield(FrameFreezer.freeze(0.3), "completed")
 		AudioPlayer.play_sound(AudioPlayer.DEATH2)
-#		circle.visible = false
 		Events.emit_signal("add_trauma", 0.5)
-		Events.emit_signal("death_circle_done")
 		animated_sprite.visible = false
 		collision_shape.disabled = true
 		for i in [-1, 0, 1]:

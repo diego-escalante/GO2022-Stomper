@@ -76,7 +76,6 @@ func _ready():
 	
 	starting_offset = clamp(starting_offset, 0, 1)
 	trip_duration = trip_total_duration * starting_offset
-	print(starting_offset)
 	if not is_reversing:
 		path_follow.unit_offset = starting_offset
 	else:
