@@ -1,6 +1,9 @@
 class_name Player
 extends KinematicBody2D
 
+signal gained_double_jump
+signal gained_dash
+
 enum Direction {RIGHT = 1, LEFT = -1}
 
 export var pixels_per_unit := 16
@@ -117,10 +120,9 @@ func move_and_slide_with_vertical_velocity_verlet(
 	# represented in more intuitive developer-defined units (e.g. player height, block size, etc.)
 	# rather than pixels.
 	
-	# Added extra max_slides and a floor degree of 0 in the hopes that this fixes that corner bug.
 	move_and_slide(
 			pixels_per_unit * (velocity + 0.5 * Vector2.UP * vertical_acceleration * delta), 
-			Vector2.UP, false, 6, 0
+			Vector2.UP, false, 8, 0
 	)
 	
 	if velocity.x > 0:
@@ -130,10 +132,12 @@ func move_and_slide_with_vertical_velocity_verlet(
 		facing_direction = Direction.LEFT
 		animated_sprite.flip_h = true
 	
-	if is_on_floor() or is_on_ceiling():
-		velocity.y = 0
+
+	# This if and elif for sure fixes the corner issue. Real "edge" case if you know what I mean.
 	if is_on_wall():
 		velocity.x = 0
+	elif is_on_floor() or is_on_ceiling():
+		velocity.y = 0
 	return velocity
 	
 
@@ -233,10 +237,12 @@ func perform_stomp_if_able(current_gravity: float, time_delta: float) -> bool:
 					dash_enabled = true
 					set_multi_jump_enabled(false)
 					animated_sprite.modulate = enemy.animated_sprite.modulate
+					emit_signal("gained_dash")
 				Enemy.Powerup.DOUBLE_JUMP:
 					dash_enabled = false
 					set_multi_jump_enabled(true)
 					animated_sprite.modulate = enemy.animated_sprite.modulate
+					emit_signal("gained_double_jump")
 			if stomped_object is EnemyBigBounce:
 				velocity.y = -big_jump_speed
 				
