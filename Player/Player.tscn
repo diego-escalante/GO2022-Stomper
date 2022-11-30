@@ -163,7 +163,7 @@ dash_enabled = false
 dash_distance = 2.0
 time_to_dash_distance = 0.15
 fast_fall_distance = 1.75
-terminal_velocity_factor = 2.0
+terminal_velocity_factor = 1.5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.5, -2 )
