@@ -7,6 +7,7 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
+		StatTracker.complete_level(18)
 		AudioPlayer.play_sound(AudioPlayer.GOAL)
 		animated_sprite.set_animation("Active")
 		body.is_input_active = false

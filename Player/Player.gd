@@ -224,6 +224,7 @@ func player_die() -> void:
 				add_child(inst)
 		yield(get_tree().create_timer(1), "timeout")
 		Events.emit_signal("player_died")
+		StatTracker.deaths += 1
 
 func unpause() -> void:
 	get_tree().paused = false

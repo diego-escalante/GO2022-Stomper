@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Appear"
-length = 3.0
+length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -26,7 +26,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.6 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -38,7 +38,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -50,6 +50,18 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Menu/Stats:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -80,11 +92,42 @@ custom_fonts/font = ExtResource( 2 )
 text = "Wow! You did it!"
 align = 1
 
+[node name="Blank" type="Label" parent="Menu"]
+margin_right = 288.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 4 )
+align = 1
+
+[node name="Stats" type="Label" parent="Menu"]
+visible = false
+margin_top = 50.0
+margin_right = 288.0
+margin_bottom = 83.0
+custom_fonts/font = ExtResource( 4 )
+text = "Deaths: 923
+Time Elapsed: 123:23
+Levels Completed: 12/12"
+align = 1
+
+[node name="Blank2" type="Label" parent="Menu"]
+margin_top = 13.0
+margin_right = 288.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 4 )
+align = 1
+
+[node name="Blank3" type="Label" parent="Menu"]
+margin_top = 26.0
+margin_right = 288.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 4 )
+align = 1
+
 [node name="Label2" type="Label" parent="Menu"]
 visible = false
-margin_top = 37.0
+margin_top = 113.0
 margin_right = 288.0
-margin_bottom = 46.0
+margin_bottom = 122.0
 custom_fonts/font = ExtResource( 4 )
 text = "Thank you for playing."
 align = 1

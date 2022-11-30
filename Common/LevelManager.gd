@@ -37,6 +37,8 @@ func _on_start_game() -> void:
 
 func _on_goal_reached(noDelay: bool) -> void:
 	var delay = 0 if noDelay else level_load_delay
+	if current_level > 0:
+		StatTracker.complete_level(current_level)
 	var new_level = level_path_template % (current_level + 1)
 	if dir.file_exists(new_level):
 		current_level += 1

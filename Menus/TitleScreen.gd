@@ -9,8 +9,11 @@ func _ready():
 
 
 func _on_start_button_pressed():
-	Events.emit_signal("start_game")
 	start_button.disabled = true
+	StatTracker.restart_time()
+	StatTracker.deaths = 0
+	StatTracker.levels_completed = {}
+	Events.emit_signal("start_game")
 
 
 func _on_settings_button_pressed():

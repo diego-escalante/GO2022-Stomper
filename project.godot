@@ -96,6 +96,7 @@ SceneChanger="*res://Common/SceneChanger.tscn"
 LevelManager="*res://Common/LevelManager.gd"
 FrameFreezer="*res://Common/FrameFreezer.gd"
 AudioPlayer="*res://Audio/AudioPlayer.tscn"
+StatTracker="*res://Common/StatTracker.gd"
 
 [display]
 
