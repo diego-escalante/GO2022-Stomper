@@ -79,6 +79,7 @@ var velocity := Vector2.ZERO
 var facing_direction: int = Direction.RIGHT
 onready var collision_shape := $CollisionShape2D as CollisionShape2D
 onready var animation_player := $AnimationPlayer as AnimationPlayer
+onready var auto_jump_timer := $AutoJumpTimer as Timer
 
 var stomp_combo := 0
 
@@ -90,7 +91,11 @@ var is_input_active := true
 
 func _ready() -> void:
 	animated_sprite.playing = true
+	auto_jump_timer.connect("timeout", self, "_on_auto_jump")
 
+
+func _on_auto_jump() -> void:
+	_jump_buffer_timer.start()
 
 func update_run_velocity(delta: float) -> void:
 	if not is_input_active:

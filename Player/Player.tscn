@@ -260,5 +260,7 @@ position = Vector2( 0, -2 )
 anims/Squash = SubResource( 14 )
 anims/Stretch = SubResource( 15 )
 
+[node name="AutoJumpTimer" type="Timer" parent="."]
+
 [connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detached"]
 [connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera2D" method="_on_AnchorDetector2D_anchor_detected"]

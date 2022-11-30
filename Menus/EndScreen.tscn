@@ -1,38 +1,107 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Fonts/FontResource.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/TitleFontResource.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Menus/EndScreen.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/FontSmallResource.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Appear"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.329877, 0.329877 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.85098 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu/Label2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RestartButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 304.0
 margin_bottom = 164.0
-custom_constants/separation = 32
 
 [node name="Label" type="Label" parent="Menu"]
+visible = false
 margin_right = 288.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 2 )
 text = "Wow! You did it!"
 align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
-margin_left = 108.0
-margin_top = 65.0
-margin_right = 179.0
-margin_bottom = 88.0
-size_flags_horizontal = 4
+[node name="Label2" type="Label" parent="Menu"]
+visible = false
+margin_top = 37.0
+margin_right = 288.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+text = "Thank you for playing."
+align = 1
 
-[node name="RestartButton" type="Button" parent="Menu/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="."]
 unique_name_in_owner = true
-margin_right = 71.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 1 )
-text = "Yes I did!"
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -24.0
+margin_top = -31.0
+margin_right = 24.0
+margin_bottom = -16.0
+custom_fonts/font = ExtResource( 4 )
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Appear = SubResource( 1 )

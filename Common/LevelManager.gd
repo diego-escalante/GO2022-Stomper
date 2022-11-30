@@ -8,6 +8,7 @@ var dir := Directory.new()
 func _ready() -> void:
 	Events.connect("player_died", self, "_on_player_died")
 	Events.connect("goal_reached", self, "_on_goal_reached")
+	Events.connect("start_game", self, "_on_start_game")
 	
 	if dir.open("res://Levels/") != OK:
 		printerr("Failed to open Levels directory in Resources.")
@@ -27,6 +28,11 @@ func _process(delta):
 
 func _on_player_died() -> void:
 	SceneChanger.reload_scene(level_load_delay)
+	
+
+func _on_start_game() -> void:
+	current_level = 0
+	_on_goal_reached(true)
 
 
 func _on_goal_reached(noDelay: bool) -> void:

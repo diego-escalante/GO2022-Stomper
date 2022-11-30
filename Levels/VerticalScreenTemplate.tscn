@@ -7,7 +7,8 @@
 [node name="Level" type="Node2D"]
 
 [node name="Anchor2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, -88 )
+position = Vector2( 160, -296 )
+scale = Vector2( 1, 3.24 )
 y_axis_lock = false
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]

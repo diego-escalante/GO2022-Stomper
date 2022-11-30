@@ -1,0 +1,347 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Enemy/EnemyInvulnerable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Saw.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/FinalGoal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/EndScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/EnemyBigBounce.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Camera/Anchor2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 )
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="Anchor2D" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 160, -376 )
+scale = Vector2( 1, 4.08 )
+y_axis_lock = false
+target_offset = Vector2( 0, -32 )
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray( -2818049, 0, 0, -2883564, 0, 0, -2752513, 0, 65540, -2818048, 0, 11, -2818029, 0, 8, -2818028, 0, 65543, -2686977, 0, 65544, -2752512, 0, 131083, -2752493, 0, 65544, -2752492, 0, 131083, -2621441, 0, 65544, -2686976, 0, 131083, -2686957, 0, 65544, -2686956, 0, 131083, -2555905, 0, 65544, -2621440, 0, 131083, -2621421, 0, 65544, -2621420, 0, 131083, -2490369, 0, 65544, -2555904, 0, 131083, -2555898, 0, 196609, -2555897, 0, 196610, -2555896, 0, 196610, -2555895, 0, 196610, -2555894, 0, 196610, -2555893, 0, 196610, -2555892, 0, 196610, -2555891, 0, 196611, -2555885, 0, 65544, -2555884, 0, 131083, -2424833, 0, 65544, -2490368, 0, 65542, -2490367, 0, 10, -2490366, 0, 10, -2490365, 0, 11, -2490352, 0, 8, -2490351, 0, 10, -2490350, 0, 10, -2490349, 0, 65541, -2490348, 0, 131083, -2359297, 0, 65544, -2424832, 0, 131081, -2424831, 0, 131081, -2424830, 0, 131081, -2424829, 0, 131083, -2424816, 0, 65544, -2424815, 0, 131081, -2424814, 0, 131081, -2424813, 0, 131081, -2424812, 0, 131083, -2293761, 0, 65544, -2359296, 0, 131081, -2359295, 0, 131081, -2359294, 0, 131081, -2359293, 0, 65542, -2359292, 0, 11, -2359281, 0, 8, -2359280, 0, 65541, -2359279, 0, 131081, -2359278, 0, 131081, -2359277, 0, 131081, -2359276, 0, 131083, -2228225, 0, 65544, -2293760, 0, 131081, -2293759, 0, 131081, -2293758, 0, 131081, -2293757, 0, 131081, -2293756, 0, 131083, -2293745, 0, 65544, -2293744, 0, 131081, -2293743, 0, 131081, -2293742, 0, 131081, -2293741, 0, 131081, -2293740, 0, 131083, -2162689, 0, 65544, -2228224, 0, 131078, -2228223, 0, 196617, -2228222, 0, 196617, -2228221, 0, 196617, -2228220, 0, 196614, -2228219, 0, 196611, -2228210, 0, 196609, -2228209, 0, 196613, -2228208, 0, 196617, -2228207, 0, 196617, -2228206, 0, 196617, -2228205, 0, 131077, -2228204, 0, 131083, -2097153, 0, 65544, -2162688, 0, 131083, -2162669, 0, 65544, -2162668, 0, 131083, -2031617, 0, 65544, -2097152, 0, 131083, -2097133, 0, 65544, -2097132, 0, 131083, -1966081, 0, 65544, -2031616, 0, 131083, -2031597, 0, 65544, -2031596, 0, 131083, -1900545, 0, 65544, -1966080, 0, 131083, -1966061, 0, 65544, -1966060, 0, 131083, -1835009, 0, 65544, -1900544, 0, 131083, -1900525, 0, 65544, -1900524, 0, 131083, -1769473, 0, 65544, -1835008, 0, 131083, -1834989, 0, 65544, -1834988, 0, 131083, -1703937, 0, 65544, -1769472, 0, 131083, -1769453, 0, 65544, -1769452, 0, 131083, -1638401, 0, 65544, -1703936, 0, 131083, -1703917, 0, 65544, -1703916, 0, 131083, -1572865, 0, 65544, -1638400, 0, 131083, -1638381, 0, 65544, -1638380, 0, 131083, -1507329, 0, 65544, -1572864, 0, 131083, -1572845, 0, 65544, -1572844, 0, 131083, -1441793, 0, 65544, -1507328, 0, 131083, -1507309, 0, 65544, -1507308, 0, 131083, -1376257, 0, 65544, -1441792, 0, 131083, -1441773, 0, 65544, -1441772, 0, 131083, -1310721, 0, 65544, -1376256, 0, 131083, -1376237, 0, 65544, -1376236, 0, 131083, -1245185, 0, 65544, -1310720, 0, 131083, -1310701, 0, 65544, -1310700, 0, 131083, -1179649, 0, 65544, -1245184, 0, 131083, -1245165, 0, 65544, -1245164, 0, 131083, -1114113, 0, 65544, -1179648, 0, 131083, -1179629, 0, 65544, -1179628, 0, 131083, -1048577, 0, 65544, -1114112, 0, 131083, -1114093, 0, 65544, -1114092, 0, 131083, -983041, 0, 65544, -1048576, 0, 131083, -1048557, 0, 65544, -1048556, 0, 131083, -917505, 0, 65544, -983040, 0, 131083, -983021, 0, 65544, -983020, 0, 131083, -851969, 0, 65544, -917504, 0, 131083, -917485, 0, 65544, -917484, 0, 131083, -786433, 0, 65544, -851968, 0, 131083, -851949, 0, 65544, -851948, 0, 131083, -720897, 0, 65544, -786432, 0, 131083, -786413, 0, 65544, -786412, 0, 131083, -655361, 0, 65544, -720896, 0, 131083, -720877, 0, 65544, -720876, 0, 131083, -589825, 0, 65544, -655360, 0, 131083, -655341, 0, 65544, -655340, 0, 131083, -524289, 0, 65544, -589824, 0, 131083, -589805, 0, 65544, -589804, 0, 131083, -458753, 0, 65544, -524288, 0, 131083, -524269, 0, 65544, -524268, 0, 131083, -393217, 0, 65544, -458752, 0, 131083, -458733, 0, 65544, -458732, 0, 131083, -327681, 0, 65544, -393216, 0, 131083, -393197, 0, 65544, -393196, 0, 131083, -262145, 0, 65544, -327680, 0, 131083, -327661, 0, 65544, -327660, 0, 131083, -196609, 0, 65544, -262144, 0, 131083, -262125, 0, 65544, -262124, 0, 131083, -131073, 0, 65544, -196608, 0, 131083, -196589, 0, 65544, -196588, 0, 131083, -65537, 0, 65544, -131072, 0, 131083, -131053, 0, 65544, -131052, 0, 131083, -1, 0, 65544, -65536, 0, 65542, -65535, 0, 10, -65534, 0, 10, -65533, 0, 10, -65532, 0, 10, -65531, 0, 10, -65530, 0, 10, -65529, 0, 10, -65528, 0, 10, -65527, 0, 10, -65526, 0, 10, -65525, 0, 10, -65524, 0, 10, -65523, 0, 10, -65522, 0, 10, -65521, 0, 10, -65520, 0, 10, -65519, 0, 10, -65518, 0, 10, -65517, 0, 65541, -65516, 0, 131083, 65535, 0, 196616, 0, 0, 196617, 1, 0, 196617, 2, 0, 196617, 3, 0, 196617, 4, 0, 196617, 5, 0, 196617, 6, 0, 196617, 7, 0, 196617, 8, 0, 196617, 9, 0, 196617, 10, 0, 196617, 11, 0, 196617, 12, 0, 196617, 13, 0, 196617, 14, 0, 196617, 15, 0, 196617, 16, 0, 196617, 17, 0, 196617, 18, 0, 196617, 19, 0, 196617, 20, 0, 196619 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 80, -57 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 80, -136 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 128, -152 )
+powerup = 2
+
+[node name="Enemy7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 192, -296 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 64, -312 )
+powerup = 1
+
+[node name="Enemy9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 128, -296 )
+
+[node name="EnemyBigBounce" parent="." instance=ExtResource( 5 )]
+position = Vector2( 280, -168 )
+powerup = 1
+
+[node name="EnemyBigBounce2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 232, -248 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 232, -152 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 32, -72 )
+powerup = 1
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 128, -40 )
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 160, -24 )
+
+[node name="EnemyBigBounce3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 192, -368 )
+
+[node name="Saw" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, -432 )
+
+[node name="Saw2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, -432 )
+
+[node name="Saw3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, -472 )
+
+[node name="Saw4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, -472 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 128, -360 )
+powerup = 2
+
+[node name="Saw5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, -512 )
+
+[node name="Saw6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, -512 )
+
+[node name="EnemyBigBounce5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 192, -472 )
+
+[node name="EnemyBigBounce6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, -528 )
+
+[node name="EnemyBigBounce4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 128, -432 )
+powerup = 2
+
+[node name="Spikes" parent="." instance=ExtResource( 7 )]
+position = Vector2( 24, -24 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 40, -24 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 56, -24 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 72, -24 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 88, -24 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 104, -24 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 120, -24 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 136, -24 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 184, -24 )
+
+[node name="Spikes10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 200, -24 )
+
+[node name="Spikes11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 248, -24 )
+
+[node name="Spikes12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 264, -24 )
+
+[node name="Spikes13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 280, -24 )
+
+[node name="Spikes14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 296, -24 )
+
+[node name="Spikes15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 232, -24 )
+
+[node name="Spikes16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 216, -24 )
+
+[node name="Goal2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, -672 )
+
+[node name="EnemyBigBounce7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 48, -728 )
+curve = SubResource( 2 )
+movement_type = 0
+speed = 1.5
+starting_offset = 0.143
+
+[node name="EnemyInvulnerable" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, -728 )
+curve = SubResource( 3 )
+powerup = 2
+movement_type = 0
+speed = 1.5
+starting_offset = 0.286
+
+[node name="EnemyBigBounce8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 112, -728 )
+curve = SubResource( 5 )
+movement_type = 0
+speed = 1.5
+starting_offset = 0.714
+
+[node name="EnemyInvulnerable2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, -728 )
+curve = SubResource( 6 )
+powerup = 2
+movement_type = 0
+speed = 1.5
+starting_offset = 0.571
+
+[node name="Enemy13" parent="." instance=ExtResource( 10 )]
+position = Vector2( 128, -728 )
+curve = SubResource( 7 )
+powerup = 1
+movement_type = 0
+speed = 1.5
+starting_offset = 1.0
+
+[node name="Enemy11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 32, -728 )
+curve = SubResource( 1 )
+powerup = 1
+movement_type = 0
+speed = 1.5
+
+[node name="EnemyBigBounce9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 208, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 9 )
+movement_type = 0
+speed = 1.5
+starting_offset = 0.714
+
+[node name="EnemyInvulnerable3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 224, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 10 )
+powerup = 2
+movement_type = 0
+speed = 1.5
+starting_offset = 0.571
+
+[node name="EnemyBigBounce10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 272, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 12 )
+movement_type = 0
+speed = 1.5
+starting_offset = 0.143
+
+[node name="EnemyInvulnerable4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 13 )
+powerup = 2
+movement_type = 0
+speed = 1.5
+starting_offset = 0.286
+
+[node name="Enemy14" parent="." instance=ExtResource( 10 )]
+position = Vector2( 288, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 14 )
+powerup = 1
+movement_type = 0
+speed = 1.5
+
+[node name="Enemy12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 192, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 8 )
+powerup = 1
+movement_type = 0
+speed = 1.5
+starting_offset = 1.0
+
+[node name="Spikes17" parent="." instance=ExtResource( 7 )]
+position = Vector2( 8, -696 )
+
+[node name="Spikes18" parent="." instance=ExtResource( 7 )]
+position = Vector2( -8, -712 )
+
+[node name="Spikes19" parent="." instance=ExtResource( 7 )]
+position = Vector2( 312, -696 )
+
+[node name="Spikes20" parent="." instance=ExtResource( 7 )]
+position = Vector2( 328, -712 )
+
+[node name="Saw7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, -728 )
+curve = SubResource( 15 )
+movement_type = 0
+speed = 1.5
+starting_offset = 0.429
+
+[node name="Saw8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240, -728 )
+scale = Vector2( -1, 1 )
+curve = SubResource( 16 )
+movement_type = 0
+speed = 1.5
+starting_offset = 0.429
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndScreen" parent="CanvasLayer" instance=ExtResource( 4 )]

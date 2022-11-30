@@ -1,10 +1,16 @@
 extends PlayerState
 
+var time_start: int
+
+func _ready():
+	time_start = OS.get_ticks_msec()
+
 func enter(msg:= {}) -> void:
 	player.stop_coyote_time()
 	player.jumps_left = player.jumps_total
-	player.animated_sprite.set_animation("Land")
-	player.animation_player.play("Squash")
+	if (OS.get_ticks_msec() - time_start) > 100:
+		player.animated_sprite.set_animation("Land")
+		player.animation_player.play("Squash")
 	player.stomp_combo = 0
 
 func physics_update(delta: float) -> void:

@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_start_button_pressed():
-	Events.emit_signal("goal_reached", true)
+	Events.emit_signal("start_game")
 	start_button.disabled = true
 
 
