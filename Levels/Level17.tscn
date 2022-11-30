@@ -17,7 +17,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 488, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 472, 0 )
 }
 
 [node name="Level" type="Node2D"]
@@ -143,7 +143,7 @@ position = Vector2( 512, -64 )
 powerup = 2
 
 [node name="EnemyInvulnerable" parent="." instance=ExtResource( 4 )]
-position = Vector2( 24, -40 )
+position = Vector2( 40, -40 )
 curve = SubResource( 1 )
 movement_type = 0
 speed = 3.0

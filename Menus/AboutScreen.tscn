@@ -34,7 +34,7 @@ Tools Used:
 > ChipTone by SFB Games
 
 Special thanks to my wonderful friends who playtested this game:
-Shannon, Matt, Andrew"
+Shannon, Matt, Andrew, Brew, Ben, Julia, Hana, Dustin"
 autowrap = true
 
 [node name="BackButton" parent="." instance=ExtResource( 2 )]

@@ -35,11 +35,11 @@ func _set_powerup(value) -> void:
 	powerup = value
 	match powerup:
 		Powerup.NONE:
-			$PathFollow2D/AnimatedSprite.modulate = Color(1,1,1)
+			$PathFollow2D/AnimatedSprite.modulate = Color.white
 		Powerup.DASH:
-			$PathFollow2D/AnimatedSprite.modulate = Color(1,0,0)
+			$PathFollow2D/AnimatedSprite.modulate = Color("#C435CA")
 		Powerup.DOUBLE_JUMP:
-			$PathFollow2D/AnimatedSprite.modulate = Color(0,1,1)
+			$PathFollow2D/AnimatedSprite.modulate = Color("#3BCA35")
 
 
 func _ready():

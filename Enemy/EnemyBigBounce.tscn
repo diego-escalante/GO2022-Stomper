@@ -29,10 +29,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4, 3.5 )
+extents = Vector2( 4, 3 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 7, 2 )
+extents = Vector2( 8, 2.5 )
 
 [node name="EnemyBigBounce" type="Path2D"]
 z_as_relative = false
@@ -53,7 +53,7 @@ playing = true
 [node name="Hitbox" parent="PathFollow2D" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Hitbox"]
-position = Vector2( 0, 1.5 )
+position = Vector2( 0, 2 )
 shape = SubResource( 3 )
 
 [node name="Stompbox" type="Area2D" parent="PathFollow2D"]
@@ -62,5 +62,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Stompbox"]
 modulate = Color( 0, 1, 0, 1 )
-position = Vector2( 0, -4 )
+position = Vector2( 0, -3.5 )
 shape = SubResource( 4 )
