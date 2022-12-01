@@ -57,7 +57,9 @@ func _ready():
 			AudioPlayer.STOMP8
 	]
 		
-	player = get_tree().get_nodes_in_group("Player")[0] as Node2D
+	var objs = get_tree().get_nodes_in_group("Player")
+	if not objs.empty():
+		player = objs[0] as Node2D
 	
 	if movement_type == MovementType.STATIC:
 		speed = 0
