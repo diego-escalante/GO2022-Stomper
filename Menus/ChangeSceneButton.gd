@@ -12,4 +12,5 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	SceneChanger.change_scene(scene, 0)
+	Events.emit_signal("enable_low_pass")
 	disconnect("pressed", self, "_on_button_pressed")

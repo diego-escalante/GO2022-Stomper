@@ -29,6 +29,8 @@ func _process(delta):
 
 func _on_player_died() -> void:
 	SceneChanger.reload_scene(level_load_delay)
+	yield(get_tree().create_timer(level_load_delay), "timeout")
+	Events.emit_signal("disable_low_pass")
 	
 
 func _on_start_game() -> void:

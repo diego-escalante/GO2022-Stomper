@@ -109,6 +109,7 @@ LevelManager="*res://Common/LevelManager.gd"
 FrameFreezer="*res://Common/FrameFreezer.gd"
 AudioPlayer="*res://Audio/AudioPlayer.tscn"
 StatTracker="*res://Common/StatTracker.gd"
+MusicPlayer="*res://Audio/MusicPlayer.tscn"
 
 [display]
 

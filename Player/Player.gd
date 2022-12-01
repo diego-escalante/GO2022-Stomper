@@ -160,6 +160,7 @@ func _physics_process(delta) -> void:
 		_jump_buffer_timer.start()
 		
 	if Input.is_action_just_pressed("esc"):
+		Events.emit_signal("enable_low_pass")
 		SceneChanger.change_scene("res://Menus/LevelSelect.tscn")
 
 
@@ -212,6 +213,7 @@ func player_die() -> void:
 	if is_active:
 		is_active = false
 		AudioPlayer.play_sound(AudioPlayer.DEATH1)
+		Events.emit_signal("enable_low_pass")
 		yield(FrameFreezer.freeze(0.3), "completed")
 		AudioPlayer.play_sound(AudioPlayer.DEATH2)
 		Events.emit_signal("add_trauma", 0.5)

@@ -1,4 +1,8 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectLowPassFilter" id=1]
+resource_name = "LowPassFilter"
+cutoff_hz = 20000.0
 
 [resource]
 bus/1/name = "Sound"
@@ -7,3 +11,11 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = "Master"
+bus/2/name = "Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -8.00903
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 1 )
+bus/2/effect/0/enabled = true
