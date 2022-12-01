@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/FontResource.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/TitleFontResource.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Menus/TitleScreen.gd" type="Script" id=3]
 [ext_resource path="res://Menus/ChangeSceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menus/ChangeLevelButton.tscn" type="PackedScene" id=5]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -25,32 +26,39 @@ text = "Stomper"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
-margin_left = 103.0
+margin_left = 101.0
 margin_top = 65.0
-margin_right = 185.0
-margin_bottom = 88.0
+margin_right = 186.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 85, 0 )
 size_flags_horizontal = 4
+
+[node name="StartGame" parent="Menu/VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 85.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start Game"
+scene = "res://Levels/Level1.tscn"
 
 [node name="StartButton" type="Button" parent="Menu/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
+margin_top = 17.0
 margin_right = 82.0
-margin_bottom = 23.0
+margin_bottom = 40.0
 custom_fonts/font = ExtResource( 1 )
 text = "Start Game"
 
-[node name="SettingsButton" type="Button" parent="Menu/VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-margin_top = 27.0
-margin_right = 82.0
-margin_bottom = 50.0
-custom_fonts/font = ExtResource( 1 )
-text = "Settings"
+[node name="LevelSelect" parent="Menu/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 25.0
+margin_right = 85.0
+margin_bottom = 38.0
+text = "Level Select"
+scene = "res://Menus/LevelSelect.tscn"
 
-[node name="AboutButton" parent="Menu/VBoxContainer" instance=ExtResource( 4 )]
-visible = false
-margin_top = 27.0
-margin_right = 82.0
-margin_bottom = 42.0
+[node name="About" parent="Menu/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 42.0
+margin_right = 85.0
+margin_bottom = 55.0
 text = "About"
 scene = "res://Menus/AboutScreen.tscn"

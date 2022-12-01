@@ -158,6 +158,9 @@ func calculate_position_delta(
 func _physics_process(delta) -> void:
 	if is_input_active and Input.is_action_just_pressed(jump_button):
 		_jump_buffer_timer.start()
+		
+	if Input.is_action_just_pressed("esc"):
+		SceneChanger.change_scene("res://Menus/LevelSelect.tscn")
 
 
 func is_jump_press_buffered() -> bool:

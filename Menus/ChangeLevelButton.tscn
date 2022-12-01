@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Menus/ChangeSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://Menus/ChangeLevelButton.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontSmallResource.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Aesprite/9slice.png" type="Texture" id=3]
 [ext_resource path="res://Aesprite/9slicefilled.png" type="Texture" id=4]
 [ext_resource path="res://Aesprite/9slicefilledclicked.png" type="Texture" id=5]
+[ext_resource path="res://Aesprite/check.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 4 )
@@ -40,9 +41,9 @@ margin_bottom = 2.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="ChangeSceneButton" type="Button"]
-margin_right = 62.0
-margin_bottom = 16.0
+[node name="ChangeLevelButton" type="Button"]
+margin_right = 28.0
+margin_bottom = 28.0
 focus_mode = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -52,5 +53,7 @@ custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 1 )
-text = "Button"
+text = "#"
+icon_align = 1
 script = ExtResource( 1 )
+flag_icon = ExtResource( 6 )

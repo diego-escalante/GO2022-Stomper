@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Camera/AnchorDetector2D.gd"
 }, {
+"base": "ChangeSceneButton",
+"class": "ChangeLevelButton",
+"language": "GDScript",
+"path": "res://Menus/ChangeLevelButton.gd"
+}, {
+"base": "Button",
+"class": "ChangeSceneButton",
+"language": "GDScript",
+"path": "res://Menus/ChangeSceneButton.gd"
+}, {
 "base": "Path2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -73,6 +83,8 @@ _global_script_class_icons={
 "Anchor2D": "",
 "AnchorCamera2D": "",
 "AnchorDetector2D": "",
+"ChangeLevelButton": "",
+"ChangeSceneButton": "",
 "Enemy": "",
 "EnemyBigBounce": "",
 "EnemyInvulnerable": "",
@@ -164,22 +176,23 @@ dash={
 }
 debug_restart={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
+"events": [  ]
 }
 debug_toggle={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
+"events": [  ]
 }
 debug_next={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":78,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
+"events": [  ]
 }
 debug_previous={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [  ]
+}
+esc={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

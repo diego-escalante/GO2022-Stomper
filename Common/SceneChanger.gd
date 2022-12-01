@@ -6,7 +6,6 @@ export var fade_time := 0.25
 var tween: SceneTreeTween
 onready var fader := $Control/Fader
 
-
 # Reloads the current scene with a screen transition.
 func reload_scene(delay: float = 0) -> void:
 	yield(_fadeTo(Color("ff000000"), fade_time, delay), "completed")

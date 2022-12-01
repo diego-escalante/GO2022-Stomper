@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Menus/ChangeSceneButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/TitleFontResource.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Menus/EndScreen.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/FontSmallResource.tres" type="DynamicFont" id=4]
@@ -44,25 +45,25 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("RestartButton:visible")
+tracks/3/path = NodePath("Menu/Stats:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 4.5 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Menu/Stats:visible")
+tracks/4/path = NodePath("RestartButton:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -132,19 +133,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Thank you for playing."
 align = 1
 
-[node name="RestartButton" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="RestartButton" parent="." instance=ExtResource( 1 )]
 visible = false
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -24.0
-margin_top = -31.0
-margin_right = 24.0
-margin_bottom = -16.0
-custom_fonts/font = ExtResource( 4 )
-text = "Main Menu"
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = 56.0
+margin_right = 31.0
+margin_bottom = 72.0
+text = "Go to Title Screen"
+scene = "res://Menus/TitleScreen.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Appear = SubResource( 1 )
