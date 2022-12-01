@@ -25,10 +25,12 @@ tile_data = PoolIntArray( -786436, 1, 0, -851946, 1, 0, -720900, 1, 0, -786410, 
 
 [node name="Label" type="Label" parent="."]
 margin_left = 32.0
-margin_top = -112.0
+margin_top = -120.0
 margin_right = 288.0
-margin_bottom = -90.0
+margin_bottom = -75.0
 custom_fonts/font = ExtResource( 5 )
 text = "Move with the left and right arrow keys.
-Jump with the spacebar."
+Jump with the spacebar.
+
+Press Escape at any point to go back to the menu."
 align = 1

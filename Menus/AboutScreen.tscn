@@ -29,13 +29,13 @@ custom_fonts/font = ExtResource( 3 )
 text = "This game was created by Diego Escalante in November 2022 for the Github Game Off. The theme of the jam was \"cliche.\"
 
 Tools Used:
-> Godot
-> Aesprite
-> ChipTone by SFB Games
-asomer
+> Godot as the game engine.
+> Aesprite for graphics.
+> ChipTone by SFB Games for sound effects.
+> PO-20 and Audacity for music.
 
-Special thanks to my wonderful friends who playtested this game:
-Shannon, Matt, Andrew, Brew, Ben, Julia, Hana, Dustin"
+Special thanks to my wonderful friends who playtested this game. <3
+Shannon, Matt, Andrew, Brew, Ben, Julia, Hana, Dustin, Gabe"
 autowrap = true
 
 [node name="BackButton" parent="." instance=ExtResource( 2 )]
