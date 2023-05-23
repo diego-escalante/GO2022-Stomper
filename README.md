@@ -27,7 +27,7 @@ This game was made in the month of November for the 2022 GitHub Game Off jam. Th
 4. One the engine opens up the project, you can run the game by using the Play buttons on the top right.
 
 ## Rankings
-The game received the following rankings:
+The game received the following rankings in the game jam:
 | Category   | Rank (out of 563 entries) |
 |-----------:|:--------------------------|
 | Overall    | 23                        |
