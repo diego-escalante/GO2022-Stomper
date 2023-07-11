@@ -24,7 +24,7 @@ This game was made in the month of November for the 2022 GitHub Game Off jam. Th
 1. Make sure you have [Godot 3.5](https://godotengine.org/download/3.x) installed, as that is the version of the engine that was used for this game. No need to get the .NET version of Godot, as this project purely uses GDScript.
 2. Clone this repo in your desired directory: `git clone https://github.com/diego-escalante/GO2022-Stomper.git`
 3. Start up Godot. In the initial Project Manager window, click Import and choose the `project.godot` file at the root of your cloned repo.
-4. One the engine opens up the project, you can run the game by using the Play buttons on the top right.
+4. Once the engine opens up the project, you can run the game by using the Play buttons on the top right.
 
 ## Rankings
 The game received the following rankings in the game jam:
